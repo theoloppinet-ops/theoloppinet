@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conseils immobiliers et copropriété à Saint-Martin — Articles sur la gestion de copropriété, le marché immobilier SXM et les obligations du syndic bénévole.">
+  <meta name="keywords" content="conseils copropriété Saint-Martin, guide syndic bénévole SXM, immobilier Saint-Martin guide, PV AG copropriété Saint-Martin, acheter Saint-Martin guide">
+  <title>Conseils & ressources — Théo Loppinet · Saint-Martin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════════════════
+   THÉO LOPPINET — STYLES PARTAGÉS
+   Utilisé par toutes les pages du site
+═══════════════════════════════════════════════════════ */
+
+:root {
+  --noir:      #141414;
+  --or:        #C9A84C;
+  --or-light:  #E2C97E;
+  --blanc:     #FAFAF8;
+  --gris:      #F0EDE6;
+  --gris-mid:  #9A9488;
+  --gris-dark: #3A3632;
+  --text:      #2C2825;
+  --fd: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Jost', sans-serif;
+  --lux: cubic-bezier(.25,.46,.45,.94);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--blanc); color: var(--text); overflow-x: hidden; cursor: none; }
+
+/* CURSEUR */
+.cursor      { position:fixed; width:8px; height:8px; background:var(--or); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
+.cursor-ring { position:fixed; width:36px; height:36px; border:1px solid var(--or); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .4s,height .4s,opacity .3s; opacity:.45; }
+.cursor.hov { width:14px; height:14px; }
+.cursor-ring.hov { width:52px; height:52px; opacity:.2; }
+
+/* LANG BAR */
+.lang-bar { position:fixed; top:0; left:0; right:0; height:34px; background:var(--noir); display:flex; align-items:center; justify-content:flex-end; padding:0 40px; z-index:1000; border-bottom:1px solid rgba(201,168,76,.12); }
+.lang-bar span { font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:rgba(250,250,248,.3); margin-right:14px; }
+.lang-btn { font-size:10px; letter-spacing:.18em; text-transform:uppercase; background:none; border:1px solid var(--or); color:var(--or); padding:3px 12px; cursor:none; transition:background .25s,color .25s; }
+.lang-btn:hover { background:var(--or); color:var(--noir); }
+
+/* NAV */
+nav { position:fixed; top:34px; left:0; right:0; height:66px; display:flex; align-items:center; justify-content:space-between; padding:0 52px; z-index:999; transition:background .4s,box-shadow .4s; }
+nav.scrolled, nav.solid { background:rgba(20,20,20,.97); backdrop-filter:blur(12px); box-shadow:0 1px 0 rgba(201,168,76,.12); }
+.nav-logo { font-family:var(--fd); font-size:20px; font-weight:500; color:var(--blanc); letter-spacing:.04em; text-decoration:none; display:flex; flex-direction:column; line-height:1.1; cursor:none; }
+.nav-logo span { font-size:9px; font-family:var(--fb); letter-spacing:.28em; text-transform:uppercase; color:var(--or); font-weight:400; }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(250,250,248,.6); text-decoration:none; position:relative; transition:color .3s; cursor:none; padding-bottom:2px; }
+.nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:1px; background:var(--or); transform:scaleX(0); transform-origin:right; transition:transform .35s var(--lux); }
+.nav-links a:hover, .nav-links a.hl { color:var(--or); }
+.nav-links a:hover::after, .nav-links a.hl::after { transform:scaleX(1); transform-origin:left; }
+.nav-cta { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:var(--or); color:var(--noir); border:none; padding:10px 22px; cursor:none; text-decoration:none; font-weight:500; transition:background .25s,transform .2s; }
+.nav-cta:hover { background:var(--or-light); transform:translateY(-1px); }
+
+/* PAGE HERO (pages internes) */
+.page-hero { padding:160px 0 80px; background:var(--noir); position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(201,168,76,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.025) 1px,transparent 1px); background-size:72px 72px; }
+.page-hero .si { position:relative; }
+.page-hero .ey { color:var(--or); }
+.page-hero h1 { font-family:var(--fd); font-size:clamp(40px,5vw,68px); font-weight:300; color:var(--blanc); line-height:1.05; margin-bottom:20px; }
+.page-hero h1 em { font-style:italic; color:var(--or); }
+.page-hero p { font-size:15px; line-height:1.85; color:rgba(250,250,248,.5); max-width:560px; font-weight:300; }
+
+/* SECTION BASE */
+.si { max-width:1180px; margin:0 auto; padding:0 52px; }
+.ey { font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--or); display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.ey::before { content:''; width:26px; height:1px; background:var(--or); }
+.st { font-family:var(--fd); font-size:clamp(30px,3.5vw,48px); font-weight:300; line-height:1.1; color:var(--text); margin-bottom:14px; }
+.st em { font-style:italic; color:var(--or); }
+.st.lt { color:var(--blanc); }
+.ss { font-size:14px; line-height:1.85; color:var(--gris-mid); max-width:500px; font-weight:300; }
+.ss.lt { color:rgba(250,250,248,.48); }
+
+/* BUTTONS */
+.btn-p { font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:500; background:var(--or); color:var(--noir); border:none; padding:14px 30px; text-decoration:none; cursor:none; transition:background .25s,transform .25s,box-shadow .25s; display:inline-block; }
+.btn-p:hover { background:var(--or-light); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,168,76,.2); }
+.btn-g { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:none; color:rgba(250,250,248,.55); border:1px solid rgba(250,250,248,.15); padding:14px 30px; text-decoration:none; cursor:none; transition:border-color .25s,color .25s; display:inline-block; }
+.btn-g:hover { border-color:var(--or); color:var(--or); }
+.btn-dark { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:none; color:var(--or); border:1px solid rgba(201,168,76,.35); padding:13px 28px; text-decoration:none; cursor:none; transition:background .25s,color .25s; display:inline-block; }
+.btn-dark:hover { background:var(--or); color:var(--noir); }
+
+/* REVEAL */
+.rv { opacity:0; transform:translateY(24px); transition:opacity .7s var(--lux),transform .7s var(--lux); }
+.rv.vs { opacity:1; transform:none; }
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+
+/* FOOTER */
+footer { background:#0E0E0E; padding:52px 0 28px; border-top:1px solid rgba(201,168,76,.07); }
+.ft-inner { max-width:1180px; margin:0 auto; padding:0 52px; }
+.ft-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.05); margin-bottom:28px; }
+.ft-brand p { font-size:12px; color:rgba(250,250,248,.26); line-height:1.7; font-weight:300; margin-top:12px; }
+.ft-col h4 { font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--or); margin-bottom:16px; }
+.ft-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.ft-col ul li a { font-size:12px; color:rgba(250,250,248,.32); text-decoration:none; transition:color .25s; cursor:none; }
+.ft-col ul li a:hover { color:var(--or); }
+.ft-bottom { display:flex; justify-content:space-between; align-items:center; }
+.ft-copy { font-size:11px; color:rgba(250,250,248,.16); }
+.ft-legal { display:flex; gap:18px; }
+.ft-legal a { font-size:11px; color:rgba(250,250,248,.16); text-decoration:none; cursor:none; transition:color .25s; }
+.ft-legal a:hover { color:var(--or); }
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav{padding:0 28px}.si{padding:0 28px}.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.ft-top{grid-template-columns:1fr}.ft-bottom{flex-direction:column;gap:10px;text-align:center}body{cursor:auto}.cursor,.cursor-ring{display:none}}
+
+</style>
+  <style>
+    .blog-section { padding:80px 0 100px; background:var(--blanc); }
+    .articles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:60px; }
+    .article-card { border:1px solid rgba(0,0,0,.07); padding:40px 32px; cursor:none; position:relative; overflow:hidden; transition:transform .3s var(--lux),box-shadow .3s; display:flex; flex-direction:column; }
+    .article-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--or),var(--or-light)); transform:scaleX(0); transform-origin:left; transition:transform .35s var(--lux); }
+    .article-card:hover { transform:translateY(-5px); box-shadow:0 16px 44px rgba(0,0,0,.07); }
+    .article-card:hover::after { transform:scaleX(1); }
+    .art-cat { font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--or); display:block; margin-bottom:16px; }
+    .art-date { font-size:10px; color:rgba(0,0,0,.25); margin-bottom:8px; display:block; }
+    .article-card h2 { font-family:var(--fd); font-size:22px; font-weight:400; color:var(--text); line-height:1.3; margin-bottom:14px; }
+    .article-card p { font-size:13px; line-height:1.78; color:var(--gris-mid); font-weight:300; flex:1; }
+    .art-read { display:inline-flex; align-items:center; gap:8px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--or); text-decoration:none; cursor:none; margin-top:24px; transition:gap .25s; }
+    .art-read:hover { gap:14px; }
+
+    /* Article full */
+    .article-full { padding:80px 0 100px; background:var(--blanc); }
+    .article-full.hidden { display:none; }
+    .art-layout { display:grid; grid-template-columns:1fr 340px; gap:80px; align-items:start; }
+    .art-body { font-size:15px; line-height:1.9; color:var(--gris-dark); font-weight:300; }
+    .art-body h2 { font-family:var(--fd); font-size:28px; font-weight:400; color:var(--text); margin:40px 0 16px; }
+    .art-body h3 { font-family:var(--fd); font-size:22px; font-weight:400; color:var(--text); margin:28px 0 12px; }
+    .art-body p { margin-bottom:18px; }
+    .art-body ul { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:18px; padding-left:20px; }
+    .art-body ul li::before { content:'—'; color:var(--or); margin-right:10px; }
+    .art-body strong { font-weight:500; color:var(--text); }
+    .art-sidebar { position:sticky; top:115px; }
+    .sidebar-cta { background:var(--noir); padding:36px 32px; margin-bottom:24px; position:relative; }
+    .sidebar-cta::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--or),var(--or-light)); }
+    .sidebar-cta h3 { font-family:var(--fd); font-size:20px; font-weight:300; color:var(--blanc); margin-bottom:8px; }
+    .sidebar-cta p { font-size:12.5px; color:rgba(250,250,248,.45); margin-bottom:20px; line-height:1.65; font-weight:300; }
+    .sidebar-cta a { display:block; font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:var(--or); color:var(--noir); padding:13px; text-align:center; text-decoration:none; cursor:none; font-weight:500; transition:background .25s; }
+    .sidebar-cta a:hover { background:var(--or-light); }
+    .art-back { display:inline-flex; align-items:center; gap:8px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--or); cursor:none; background:none; border:none; margin-bottom:40px; transition:gap .25s; }
+    .art-back:hover { gap:14px; }
+
+    @media(max-width:1024px){.articles-grid{grid-template-columns:1fr 1fr}.art-layout{grid-template-columns:1fr}}
+    @media(max-width:768px){.articles-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+<div class="lang-bar"><span>Saint-Martin · 97150</span><button class="lang-btn" onclick="tl()" id="lb">EN</button></div>
+<nav id="nav" class="solid">
+  <a href="index.html" class="nav-logo">Théo Loppinet<span>Immobilier · Saint-Martin</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html" data-fr="Syndic bénévole" data-en="HOA Support">Syndic bénévole</a></li>
+    <li><a href="transaction.html" data-fr="Transaction" data-en="Real Estate">Transaction</a></li>
+    <li><a href="syndic-pro.html" data-fr="Syndic pro" data-en="Pro HOA">Syndic pro</a></li>
+    <li><a href="blog.html" class="hl" data-fr="Conseils" data-en="Insights">Conseils</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta" data-fr="Nous contacter" data-en="Contact">Nous contacter</a>
+</nav>
+
+<div class="page-hero">
+  <div class="si">
+    <div class="ey rv">Conseils &amp; ressources</div>
+    <h1 class="rv d1">Copropriété &amp; immobilier<br><em>à Saint-Martin</em></h1>
+    <p class="rv d2">Articles pratiques sur la gestion de copropriété, les obligations du syndic bénévole et le marché immobilier à Saint-Martin.</p>
+  </div>
+</div>
+
+<!-- LISTE ARTICLES -->
+<section class="blog-section" id="articles-list">
+  <div class="si">
+    <div class="articles-grid">
+
+      <div class="article-card rv" onclick="showArticle('art1')">
+        <span class="art-cat">Copropriété</span>
+        <span class="art-date">2025</span>
+        <h2>Syndic bénévole à Saint-Martin : quelles sont vos obligations légales ?</h2>
+        <p>Immatriculation au Registre National, tenue des AG, comptabilité réglementaire... La loi du 10 juillet 1965 s'applique pleinement à Saint-Martin. Voici ce qu'elle impose, même aux plus petites copropriétés.</p>
+        <a class="art-read" onclick="event.stopPropagation();showArticle('art1')">Lire l'article →</a>
+      </div>
+
+      <div class="article-card rv d1" onclick="showArticle('art2')">
+        <span class="art-cat">Transaction</span>
+        <span class="art-date">2025</span>
+        <h2>Acheter à Saint-Martin : ce que vous devez savoir avant de signer</h2>
+        <p>Spécificités fiscales et urbanistiques de la Collectivité d'Outre-Mer, rôle du notaire, délais, droit de préemption... Le guide pratique pour acheter sereinement à Saint-Martin.</p>
+        <a class="art-read" onclick="event.stopPropagation();showArticle('art2')">Lire l'article →</a>
+      </div>
+
+      <div class="article-card rv d2" onclick="showArticle('art3')">
+        <span class="art-cat">Gestion</span>
+        <span class="art-date">2025</span>
+        <h2>PV d'AG mal rédigé : pourquoi ça peut coûter cher à votre copropriété</h2>
+        <p>Un procès-verbal incomplet ou non conforme peut entraîner l'annulation d'une décision d'assemblée générale. Voici ce qu'il doit impérativement contenir selon la loi.</p>
+        <a class="art-read" onclick="event.stopPropagation();showArticle('art3')">Lire l'article →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 1 -->
+<section class="article-full hidden" id="art1">
+  <div class="si">
+    <button class="art-back" onclick="hideArticles()">← Retour aux articles</button>
+    <div class="art-layout">
+      <div class="art-body">
+        <div class="ey">Copropriété</div>
+        <h1 style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:300;line-height:1.1;margin-bottom:20px;">Syndic bénévole à Saint-Martin :<br><em>quelles sont vos obligations légales ?</em></h1>
+        <p>Vous gérez votre copropriété en tant que syndic bénévole à Saint-Martin ? La bonne nouvelle : c'est tout à fait légal et répandu. La moins bonne : la loi du 10 juillet 1965 et le décret du 17 mars 1967 s'appliquent pleinement à Saint-Martin en tant que Collectivité d'Outre-Mer, et les obligations sont les mêmes que pour un syndic professionnel.</p>
+
+        <h2>1. L'immatriculation au Registre National des Copropriétés</h2>
+        <p>Depuis le 31 décembre 2018, toutes les copropriétés — même les plus petites — doivent être immatriculées au Registre National des Copropriétés (RNC) géré par l'ANAH. Cette démarche est obligatoire et gratuite. Elle incombe au syndic, qu'il soit professionnel ou bénévole.</p>
+        <p>Une fois immatriculée, la copropriété doit procéder à une <strong>mise à jour annuelle dans les 2 mois suivant l'assemblée générale</strong> d'approbation des comptes. L'absence d'immatriculation expose le syndic à une astreinte de 20 € par lot et par semaine de retard.</p>
+
+        <h2>2. L'assemblée générale annuelle</h2>
+        <p>Au moins une assemblée générale ordinaire doit être tenue chaque année. Elle doit notamment comporter à l'ordre du jour :</p>
+        <ul>
+          <li>L'approbation des comptes de l'exercice clos</li>
+          <li>Le vote du budget prévisionnel de l'exercice suivant</li>
+          <li>Le renouvellement (ou non) du mandat du syndic</li>
+        </ul>
+        <p>La convocation doit être adressée à chaque copropriétaire <strong>au moins 21 jours avant la date de l'AG</strong>, par lettre recommandée avec accusé de réception — ou par lettre recommandée électronique (LRE) pour les copropriétaires qui ont donné leur accord écrit préalable.</p>
+
+        <h2>3. La comptabilité réglementaire</h2>
+        <p>Le décret n°2005-240 du 14 mars 2005 impose aux syndicats de copropriétaires la tenue d'une comptabilité en partie double, avec des documents spécifiques :</p>
+        <ul>
+          <li>Le Relevé Général des Dépenses (RGD)</li>
+          <li>Les Annexes SRU 1 à 5 (situation financière, compte de gestion, dettes et créances, répartition par clé, fonds de travaux)</li>
+          <li>L'état des soldes des copropriétaires</li>
+          <li>Le budget prévisionnel</li>
+        </ul>
+        <p>Ces documents doivent être joints à la convocation de l'AG annuelle, pour permettre aux copropriétaires de voter en connaissance de cause.</p>
+
+        <h2>4. Le compte bancaire séparé</h2>
+        <p>Bien que le compte bancaire séparé soit légalement obligatoire uniquement pour les syndics professionnels, il est <strong>fortement recommandé pour les syndics bénévoles</strong>. Un compte au nom du syndicat des copropriétaires permet une traçabilité complète des fonds et protège le syndic bénévole en cas de litige.</p>
+
+        <h2>5. Les documents à conserver</h2>
+        <p>Le syndic bénévole doit conserver :</p>
+        <ul>
+          <li>Le règlement de copropriété et l'état descriptif de division</li>
+          <li>Les PV des 5 dernières années</li>
+          <li>Les documents comptables des 10 dernières années</li>
+          <li>Les contrats en cours</li>
+        </ul>
+        <p>À la fin de son mandat, il dispose de 30 jours pour remettre l'ensemble de ces documents à son successeur.</p>
+
+        <h2>En résumé</h2>
+        <p>Être syndic bénévole à Saint-Martin, c'est possible et économique pour la copropriété — mais ce n'est pas sans contraintes. Si vous manquez de temps ou de connaissances pour assurer ces obligations, vous pouvez faire appel à des services ponctuels pour la rédaction de vos documents, sans pour autant avoir à confier un mandat à un syndic professionnel.</p>
+      </div>
+      <div class="art-sidebar">
+        <div class="sidebar-cta">
+          <h3>Besoin d'un document conforme ?</h3>
+          <p>Convocation, PV d'AG, mise en demeure ou appel de fonds : je le génère pour vous en 48h, sans engagement.</p>
+          <a href="services.html">Voir les prestations</a>
+        </div>
+        <div class="sidebar-cta">
+          <h3>Assistance registre national</h3>
+          <p>Je vous aide à immatriculer votre copropriété ou à effectuer la mise à jour annuelle obligatoire.</p>
+          <a href="index.html#contact">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 2 -->
+<section class="article-full hidden" id="art2">
+  <div class="si">
+    <button class="art-back" onclick="hideArticles()">← Retour aux articles</button>
+    <div class="art-layout">
+      <div class="art-body">
+        <div class="ey">Transaction</div>
+        <h1 style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:300;line-height:1.1;margin-bottom:20px;">Acheter à Saint-Martin :<br><em>ce que vous devez savoir avant de signer</em></h1>
+        <p>Saint-Martin est une Collectivité d'Outre-Mer (COM) française, dotée d'une assemblée territoriale et d'un statut juridique particulier. Si le droit civil français s'applique pour les transactions immobilières, certaines spécificités locales sont à connaître avant de vous engager.</p>
+
+        <h2>1. La COM de Saint-Martin : un statut particulier</h2>
+        <p>Depuis 2007, Saint-Martin est une collectivité d'outre-mer autonome, distincte de la Guadeloupe. Elle dispose de <strong>compétences propres en matière de fiscalité et d'urbanisme</strong>. Le droit immobilier (loi de 1965, rôle du notaire) reste celui du droit français, mais les règles fiscales et urbanistiques sont celles de la COM.</p>
+
+        <h2>2. La fiscalité locale</h2>
+        <p>Saint-Martin applique ses propres règles fiscales. Il n'y a <strong>pas de TVA locale</strong> sur les biens anciens. Les droits de mutation (frais de notaire) sont calculés selon les taux locaux. En cas d'achat par un non-résident ou une société, des spécificités s'appliquent — il est recommandé de consulter un notaire local avant la signature.</p>
+
+        <h2>3. Le Plan Local d'Urbanisme</h2>
+        <p>La COM de Saint-Martin dispose de son propre PLU. Avant tout achat, il est important de vérifier :</p>
+        <ul>
+          <li>Le zonage du terrain ou du bien</li>
+          <li>Les droits à construire ou à agrandir</li>
+          <li>Les éventuelles servitudes ou restrictions</li>
+          <li>Le risque cyclonique et les zones inondables</li>
+        </ul>
+
+        <h2>4. Le rôle du notaire</h2>
+        <p>Le notaire est incontournable pour toute transaction immobilière à Saint-Martin. Il authentifie l'acte de vente, vérifie les titres de propriété et s'assure de la conformité de la transaction. Le délai entre le compromis et l'acte authentique est généralement de <strong>2 à 4 mois</strong>.</p>
+
+        <h2>5. Le cas des copropriétés</h2>
+        <p>Si vous achetez un bien dans une copropriété, vous avez le droit d'obtenir avant la signature :</p>
+        <ul>
+          <li>Les 3 derniers procès-verbaux d'assemblée générale</li>
+          <li>Le montant des charges courantes sur les 2 derniers exercices</li>
+          <li>L'état des impayés de charges dans la copropriété</li>
+          <li>La fiche synthétique de la copropriété</li>
+        </ul>
+        <p>Ces informations sont essentielles pour évaluer la santé financière de la copropriété avant d'acheter.</p>
+
+        <h2>6. Les acheteurs internationaux</h2>
+        <p>Saint-Martin accueille de nombreux acheteurs internationaux — Américains, Néerlandais, Français de métropole. Il n'y a pas de restriction à l'achat pour les étrangers. En revanche, les implications fiscales dans votre pays de résidence doivent être vérifiées avec votre conseiller fiscal.</p>
+      </div>
+      <div class="art-sidebar">
+        <div class="sidebar-cta">
+          <h3>Vous souhaitez acheter ?</h3>
+          <p>Je vous accompagne de la recherche à la signature, en français et en anglais.</p>
+          <a href="transaction.html">Découvrir le service</a>
+        </div>
+        <div class="sidebar-cta">
+          <h3>Estimation gratuite</h3>
+          <p>Vous vendez ? Obtenez une estimation de votre bien sous 48h, sans engagement.</p>
+          <a href="transaction.html#estimation">Demander une estimation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 3 -->
+<section class="article-full hidden" id="art3">
+  <div class="si">
+    <button class="art-back" onclick="hideArticles()">← Retour aux articles</button>
+    <div class="art-layout">
+      <div class="art-body">
+        <div class="ey">Gestion</div>
+        <h1 style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:300;line-height:1.1;margin-bottom:20px;">PV d'AG mal rédigé :<br><em>pourquoi ça peut coûter cher</em></h1>
+        <p>Le procès-verbal d'assemblée générale est le document qui officialise les décisions prises lors d'une réunion de copropriétaires. Un PV mal rédigé ou incomplet peut entraîner l'annulation d'une décision par voie judiciaire — avec toutes les conséquences que cela implique.</p>
+
+        <h2>1. Le délai de contestation</h2>
+        <p>Tout copropriétaire opposant ou défaillant dispose d'un délai de <strong>2 mois</strong> à compter de la notification du PV pour contester une décision d'AG en justice (art. 42 loi 1965). Si le PV ne mentionne pas correctement le résultat du vote ou n'identifie pas les opposants, ce délai peut ne pas courir — exposant la copropriété à des contestations tardives.</p>
+
+        <h2>2. Les mentions obligatoires</h2>
+        <p>Un PV d'AG conforme doit impérativement mentionner :</p>
+        <ul>
+          <li>La date, le lieu et l'heure de la réunion</li>
+          <li>La nature de l'AG (ordinaire ou extraordinaire) et la convocation (date, mode d'envoi)</li>
+          <li>La liste des copropriétaires présents, représentés et défaillants avec leurs tantièmes</li>
+          <li>Le quorum (nombre de tantièmes représentés)</li>
+          <li>Pour chaque résolution : le texte de la résolution, la règle de majorité applicable, le résultat du vote (pour, contre, abstentions, en tantièmes et en voix), et l'identité des opposants</li>
+          <li>Les signatures du Président, du Scrutateur et du Secrétaire de séance</li>
+        </ul>
+
+        <h2>3. Les erreurs les plus fréquentes</h2>
+        <p>Dans les copropriétés autogérées, les erreurs les plus courantes sont :</p>
+        <ul>
+          <li>L'absence de mention des tantièmes lors du vote (seules les voix sont comptées)</li>
+          <li>L'absence d'identification des copropriétaires opposants à une résolution</li>
+          <li>La règle de majorité non mentionnée ou incorrecte (art. 24, 25 ou 26)</li>
+          <li>Le quorum non calculé ou insuffisant pour certaines décisions</li>
+          <li>La résolution mal formulée, rendant son exécution ambiguë</li>
+        </ul>
+
+        <h2>4. Le délai de notification</h2>
+        <p>Le PV doit être adressé à chaque copropriétaire <strong>dans le mois suivant la tenue de l'AG</strong> (art. 17-1 du décret de 1967), par lettre recommandée — ou par LRE pour ceux qui ont donné leur accord. Le non-respect de ce délai peut aussi être invoqué pour contester une décision.</p>
+
+        <h2>5. Comment éviter ces problèmes</h2>
+        <p>La solution la plus simple est de faire rédiger le PV par un professionnel à partir des informations de votre réunion. Un PV conforme, rédigé selon les textes applicables à Saint-Martin, vous protège contre toute contestation ultérieure et donne une valeur juridique solide aux décisions de votre AG.</p>
+      </div>
+      <div class="art-sidebar">
+        <div class="sidebar-cta">
+          <h3>PV d'AG conforme en 48h</h3>
+          <p>Envoyez-moi votre ordre du jour et les résultats des votes. Je rédige votre PV conforme sous 48h.</p>
+          <a href="index.html#contact">Commander un PV</a>
+        </div>
+        <div class="sidebar-cta">
+          <h3>Pack AG annuelle</h3>
+          <p>Convocation + feuille de présence + PV + documents comptables. Tout inclus, une seule commande.</p>
+          <a href="services.html#abonnement">Voir le pack</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand"><a href="index.html" class="nav-logo">Théo Loppinet<span>Immobilier · Saint-Martin</span></a><p>Agent commercial en immobilier et services aux copropriétés à Saint-Martin (97150).</p></div>
+      <div class="ft-col"><h4>Services</h4><ul><li><a href="services.html">Syndic bénévole — Documents</a></li><li><a href="transaction.html">Transaction immobilière</a></li><li><a href="syndic-pro.html">Syndic professionnel</a></li></ul></div>
+      <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:+33675862649">+33 6 75 86 26 49</a></li><li><a href="/cdn-cgi/l/email-protection#3b4f535e541557544b4b52555e4f7b5c565a525715585456"><span class="__cf_email__" data-cfemail="0c786469632260637c7c656269784c6b616d6560226f6361">[email&#160;protected]</span></a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span class="ft-copy">© 2025 Théo Loppinet · Saint-Martin (97150)</span><div class="ft-legal"><a href="mentions-legales.html">Mentions légales</a></div></div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+  document.querySelectorAll('a,button,.article-card').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.classList.add('hov');ring.classList.add('hov');});el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');ring.classList.remove('hov');});});
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vs');}),{threshold:.07});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+  function showArticle(id){
+    document.getElementById('articles-list').style.display='none';
+    document.querySelectorAll('.article-full').forEach(s=>s.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function hideArticles(){
+    document.getElementById('articles-list').style.display='block';
+    document.querySelectorAll('.article-full').forEach(s=>s.classList.add(

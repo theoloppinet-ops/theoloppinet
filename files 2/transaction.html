@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transaction immobilière à Saint-Martin — Achat, vente, estimation gratuite. Agent commercial accompagnant acheteurs et vendeurs sur la partie française de Saint-Martin.">
+  <meta name="keywords" content="agent immobilier Saint-Martin, achat immobilier SXM, vente immobilier Saint-Martin, estimation bien Saint-Martin, real estate Saint Martin French side">
+  <title>Transaction immobilière — Théo Loppinet · Saint-Martin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════════════════
+   THÉO LOPPINET — STYLES PARTAGÉS
+   Utilisé par toutes les pages du site
+═══════════════════════════════════════════════════════ */
+
+:root {
+  --noir:      #141414;
+  --or:        #C9A84C;
+  --or-light:  #E2C97E;
+  --blanc:     #FAFAF8;
+  --gris:      #F0EDE6;
+  --gris-mid:  #9A9488;
+  --gris-dark: #3A3632;
+  --text:      #2C2825;
+  --fd: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Jost', sans-serif;
+  --lux: cubic-bezier(.25,.46,.45,.94);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--blanc); color: var(--text); overflow-x: hidden; cursor: none; }
+
+/* CURSEUR */
+.cursor      { position:fixed; width:8px; height:8px; background:var(--or); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
+.cursor-ring { position:fixed; width:36px; height:36px; border:1px solid var(--or); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .4s,height .4s,opacity .3s; opacity:.45; }
+.cursor.hov { width:14px; height:14px; }
+.cursor-ring.hov { width:52px; height:52px; opacity:.2; }
+
+/* LANG BAR */
+.lang-bar { position:fixed; top:0; left:0; right:0; height:34px; background:var(--noir); display:flex; align-items:center; justify-content:flex-end; padding:0 40px; z-index:1000; border-bottom:1px solid rgba(201,168,76,.12); }
+.lang-bar span { font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:rgba(250,250,248,.3); margin-right:14px; }
+.lang-btn { font-size:10px; letter-spacing:.18em; text-transform:uppercase; background:none; border:1px solid var(--or); color:var(--or); padding:3px 12px; cursor:none; transition:background .25s,color .25s; }
+.lang-btn:hover { background:var(--or); color:var(--noir); }
+
+/* NAV */
+nav { position:fixed; top:34px; left:0; right:0; height:66px; display:flex; align-items:center; justify-content:space-between; padding:0 52px; z-index:999; transition:background .4s,box-shadow .4s; }
+nav.scrolled, nav.solid { background:rgba(20,20,20,.97); backdrop-filter:blur(12px); box-shadow:0 1px 0 rgba(201,168,76,.12); }
+.nav-logo { font-family:var(--fd); font-size:20px; font-weight:500; color:var(--blanc); letter-spacing:.04em; text-decoration:none; display:flex; flex-direction:column; line-height:1.1; cursor:none; }
+.nav-logo span { font-size:9px; font-family:var(--fb); letter-spacing:.28em; text-transform:uppercase; color:var(--or); font-weight:400; }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(250,250,248,.6); text-decoration:none; position:relative; transition:color .3s; cursor:none; padding-bottom:2px; }
+.nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:1px; background:var(--or); transform:scaleX(0); transform-origin:right; transition:transform .35s var(--lux); }
+.nav-links a:hover, .nav-links a.hl { color:var(--or); }
+.nav-links a:hover::after, .nav-links a.hl::after { transform:scaleX(1); transform-origin:left; }
+.nav-cta { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:var(--or); color:var(--noir); border:none; padding:10px 22px; cursor:none; text-decoration:none; font-weight:500; transition:background .25s,transform .2s; }
+.nav-cta:hover { background:var(--or-light); transform:translateY(-1px); }
+
+/* PAGE HERO (pages internes) */
+.page-hero { padding:160px 0 80px; background:var(--noir); position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(201,168,76,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.025) 1px,transparent 1px); background-size:72px 72px; }
+.page-hero .si { position:relative; }
+.page-hero .ey { color:var(--or); }
+.page-hero h1 { font-family:var(--fd); font-size:clamp(40px,5vw,68px); font-weight:300; color:var(--blanc); line-height:1.05; margin-bottom:20px; }
+.page-hero h1 em { font-style:italic; color:var(--or); }
+.page-hero p { font-size:15px; line-height:1.85; color:rgba(250,250,248,.5); max-width:560px; font-weight:300; }
+
+/* SECTION BASE */
+.si { max-width:1180px; margin:0 auto; padding:0 52px; }
+.ey { font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--or); display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.ey::before { content:''; width:26px; height:1px; background:var(--or); }
+.st { font-family:var(--fd); font-size:clamp(30px,3.5vw,48px); font-weight:300; line-height:1.1; color:var(--text); margin-bottom:14px; }
+.st em { font-style:italic; color:var(--or); }
+.st.lt { color:var(--blanc); }
+.ss { font-size:14px; line-height:1.85; color:var(--gris-mid); max-width:500px; font-weight:300; }
+.ss.lt { color:rgba(250,250,248,.48); }
+
+/* BUTTONS */
+.btn-p { font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:500; background:var(--or); color:var(--noir); border:none; padding:14px 30px; text-decoration:none; cursor:none; transition:background .25s,transform .25s,box-shadow .25s; display:inline-block; }
+.btn-p:hover { background:var(--or-light); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,168,76,.2); }
+.btn-g { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:none; color:rgba(250,250,248,.55); border:1px solid rgba(250,250,248,.15); padding:14px 30px; text-decoration:none; cursor:none; transition:border-color .25s,color .25s; display:inline-block; }
+.btn-g:hover { border-color:var(--or); color:var(--or); }
+.btn-dark { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:none; color:var(--or); border:1px solid rgba(201,168,76,.35); padding:13px 28px; text-decoration:none; cursor:none; transition:background .25s,color .25s; display:inline-block; }
+.btn-dark:hover { background:var(--or); color:var(--noir); }
+
+/* REVEAL */
+.rv { opacity:0; transform:translateY(24px); transition:opacity .7s var(--lux),transform .7s var(--lux); }
+.rv.vs { opacity:1; transform:none; }
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+
+/* FOOTER */
+footer { background:#0E0E0E; padding:52px 0 28px; border-top:1px solid rgba(201,168,76,.07); }
+.ft-inner { max-width:1180px; margin:0 auto; padding:0 52px; }
+.ft-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.05); margin-bottom:28px; }
+.ft-brand p { font-size:12px; color:rgba(250,250,248,.26); line-height:1.7; font-weight:300; margin-top:12px; }
+.ft-col h4 { font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--or); margin-bottom:16px; }
+.ft-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.ft-col ul li a { font-size:12px; color:rgba(250,250,248,.32); text-decoration:none; transition:color .25s; cursor:none; }
+.ft-col ul li a:hover { color:var(--or); }
+.ft-bottom { display:flex; justify-content:space-between; align-items:center; }
+.ft-copy { font-size:11px; color:rgba(250,250,248,.16); }
+.ft-legal { display:flex; gap:18px; }
+.ft-legal a { font-size:11px; color:rgba(250,250,248,.16); text-decoration:none; cursor:none; transition:color .25s; }
+.ft-legal a:hover { color:var(--or); }
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav{padding:0 28px}.si{padding:0 28px}.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.ft-top{grid-template-columns:1fr}.ft-bottom{flex-direction:column;gap:10px;text-align:center}body{cursor:auto}.cursor,.cursor-ring{display:none}}
+
+</style>
+  <style>
+    /* SERVICES TRANSACTION */
+    .trans-services { padding:80px 0 100px; background:var(--blanc); }
+    .ts-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:64px; }
+    .ts-card { padding:60px 52px; position:relative; overflow:hidden; cursor:none; }
+    .ts-card.lt { background:var(--gris); }
+    .ts-card.dk { background:var(--noir); }
+    .ts-card.or { background:var(--or); }
+    .ts-num { font-family:var(--fd); font-size:100px; font-weight:300; position:absolute; bottom:-16px; right:16px; line-height:1; pointer-events:none; }
+    .ts-card.lt .ts-num { color:rgba(201,168,76,.08); }
+    .ts-card.dk .ts-num { color:rgba(201,168,76,.07); }
+    .ts-card.or .ts-num { color:rgba(20,20,20,.06); }
+    .ts-card h3 { font-family:var(--fd); font-size:34px; font-weight:300; margin-bottom:16px; line-height:1.05; position:relative; }
+    .ts-card.lt h3 { color:var(--text); }
+    .ts-card.dk h3 { color:var(--blanc); }
+    .ts-card.or h3 { color:var(--noir); }
+    .ts-card p { font-size:14px; line-height:1.82; font-weight:300; margin-bottom:28px; position:relative; }
+    .ts-card.lt p { color:var(--gris-mid); }
+    .ts-card.dk p { color:rgba(250,250,248,.48); }
+    .ts-card.or p { color:rgba(20,20,20,.6); }
+    .ts-steps { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; position:relative; }
+    .ts-steps li { display:flex; align-items:flex-start; gap:10px; font-size:13px; font-weight:300; line-height:1.5; }
+    .ts-card.lt .ts-steps li { color:var(--gris-dark); }
+    .ts-card.dk .ts-steps li { color:rgba(250,250,248,.55); }
+    .ts-card.or .ts-steps li { color:rgba(20,20,20,.65); }
+    .ts-steps li::before { content:'→'; flex-shrink:0; font-weight:600; }
+    .ts-card.lt .ts-steps li::before { color:var(--or); }
+    .ts-card.dk .ts-steps li::before { color:var(--or); }
+    .ts-card.or .ts-steps li::before { color:var(--noir); }
+    .ts-link { font-size:10px; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; display:inline-flex; align-items:center; gap:8px; cursor:none; transition:gap .25s; position:relative; }
+    .ts-card.lt .ts-link, .ts-card.dk .ts-link { color:var(--or); }
+    .ts-card.or .ts-link { color:var(--noir); }
+    .ts-link:hover { gap:14px; }
+
+    /* Estimation CTA */
+    .estim { padding:80px 0; background:var(--noir); }
+    .estim-inner { display:grid; grid-template-columns:1fr 480px; gap:80px; align-items:center; }
+    .estim h2 { font-family:var(--fd); font-size:clamp(32px,4vw,50px); font-weight:300; color:var(--blanc); margin-bottom:16px; }
+    .estim h2 em { font-style:italic; color:var(--or); }
+    .estim p { font-size:14.5px; color:rgba(250,250,248,.5); font-weight:300; line-height:1.82; margin-bottom:32px; }
+    .estim-form { background:rgba(255,255,255,.04); border:1px solid rgba(201,168,76,.12); padding:40px 36px; }
+    .fg { margin-bottom:18px; }
+    .fl { display:block; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:rgba(250,250,248,.32); margin-bottom:8px; }
+    .fi,.fse,.fta { width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); color:var(--blanc); font-family:var(--fb); font-size:13px; padding:12px 14px; outline:none; transition:border-color .25s; cursor:none; }
+    .fi:focus,.fse:focus,.fta:focus { border-color:var(--or); }
+    .fse option { background:var(--noir); }
+    .fta { resize:vertical; min-height:80px; font-family:var(--fb); }
+    .fsb { width:100%; font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:500; background:var(--or); color:var(--noir); border:none; padding:15px; cursor:none; transition:background .25s; margin-top:6px; }
+    .fsb:hover { background:var(--or-light); }
+    .form-note { font-size:10px; color:rgba(250,250,248,.25); text-align:center; margin-top:10px; }
+
+    /* Marché local */
+    .marche { padding:80px 0; background:var(--gris); }
+    .marche-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-top:52px; }
+    .marche-content p { font-size:14.5px; line-height:1.85; color:var(--gris-dark); font-weight:300; margin-bottom:20px; }
+    .marche-points { display:flex; flex-direction:column; gap:0; }
+    .mp { display:grid; grid-template-columns:48px 1fr; gap:16px; padding:20px 0; border-bottom:1px solid rgba(0,0,0,.06); }
+    .mp:last-child { border-bottom:none; }
+    .mp-icon { font-size:22px; }
+    .mp h4 { font-family:var(--fd); font-size:19px; font-weight:400; color:var(--text); margin-bottom:5px; }
+    .mp p { font-size:13px; line-height:1.7; color:var(--gris-mid); font-weight:300; }
+
+    /* FAQ */
+    .faq-trans { padding:80px 0; background:var(--blanc); }
+    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:52px; }
+    .faq-item { border-bottom:1px solid rgba(0,0,0,.07); padding-bottom:22px; }
+    .faq-q { font-family:var(--fd); font-size:19px; font-weight:400; color:var(--text); margin-bottom:9px; }
+    .faq-a { font-size:13.5px; line-height:1.78; color:var(--gris-mid); font-weight:300; }
+
+    @media(max-width:1024px){.ts-grid,.estim-inner,.marche-grid,.faq-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+<div class="lang-bar"><span>Saint-Martin · 97150</span><button class="lang-btn" onclick="tl()" id="lb">EN</button></div>
+<nav id="nav" class="solid">
+  <a href="index.html" class="nav-logo">Théo Loppinet<span>Immobilier · Saint-Martin</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html" data-fr="Syndic bénévole" data-en="HOA Support">Syndic bénévole</a></li>
+    <li><a href="transaction.html" class="hl" data-fr="Transaction" data-en="Real Estate">Transaction</a></li>
+    <li><a href="syndic-pro.html" data-fr="Syndic pro" data-en="Pro HOA">Syndic pro</a></li>
+    <li><a href="blog.html" data-fr="Conseils" data-en="Insights">Conseils</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta" data-fr="Nous contacter" data-en="Contact">Nous contacter</a>
+</nav>
+
+<div class="page-hero">
+  <div class="si">
+    <div class="ey rv" data-fr="Transaction immobilière" data-en="Real estate">Transaction immobilière</div>
+    <h1 class="rv d1">Acheter ou vendre<br><em>à Saint-Martin</em></h1>
+    <p class="rv d2" data-fr="Accompagnement de la recherche à la signature notariée, en français et en anglais. Connaissance du marché local, des notaires et des spécificités de la Collectivité d'Outre-Mer." data-en="Support from search to notarial signing, in French and English. Knowledge of the local market, notaries and COM specificities.">Accompagnement de la recherche à la signature notariée. Connaissance du marché local et des spécificités de la COM.</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="trans-services">
+  <div class="si">
+    <div class="ts-grid">
+      <div class="ts-card lt rv">
+        <span class="ts-num">A</span>
+        <h3 data-fr="Vous achetez" data-en="You're buying">Vous achetez</h3>
+        <p data-fr="Vous cherchez un bien à Saint-Martin — résidence principale, secondaire ou investissement locatif. Je vous accompagne de la définition du projet jusqu'à la remise des clés." data-en="You're looking for a property in Saint-Martin — primary residence, holiday home or rental investment. I support you from defining your project to handing over the keys.">Résidence principale, secondaire ou investissement. Accompagnement de la définition du projet à la remise des clés.</p>
+        <ul class="ts-steps">
+          <li data-fr="Définition de votre projet et budget" data-en="Defining your project and budget">Définition de votre projet et budget</li>
+          <li data-fr="Recherche et sélection des biens correspondants" data-en="Property search and selection">Recherche et sélection des biens</li>
+          <li data-fr="Organisation des visites" data-en="Arranging viewings">Organisation des visites</li>
+          <li data-fr="Négociation et offre d'achat" data-en="Negotiation and purchase offer">Négociation et offre d'achat</li>
+          <li data-fr="Coordination avec le notaire jusqu'à la signature" data-en="Coordination with notary through to signing">Coordination jusqu'à la signature notariée</li>
+        </ul>
+        <a href="index.html#contact" class="ts-link" data-fr="Soumettre ma recherche →" data-en="Submit my search →">Soumettre ma recherche →</a>
+      </div>
+
+      <div class="ts-card dk rv d1">
+        <span class="ts-num">V</span>
+        <h3 data-fr="Vous vendez" data-en="You're selling">Vous vendez</h3>
+        <p data-fr="Vous souhaitez mettre votre bien en vente à Saint-Martin. Estimation, mise en valeur, diffusion et suivi de la transaction jusqu'à l'acte authentique." data-en="You want to sell your property in Saint-Martin. Valuation, presentation, marketing and transaction monitoring through to the final deed.">Estimation, mise en valeur, diffusion et suivi jusqu'à l'acte authentique.</p>
+        <ul class="ts-steps">
+          <li data-fr="Estimation gratuite de votre bien" data-en="Free property valuation">Estimation gratuite de votre bien</li>
+          <li data-fr="Conseils pour la mise en valeur" data-en="Presentation advice">Conseils pour la mise en valeur</li>
+          <li data-fr="Diffusion de l'annonce" data-en="Listing publication">Diffusion de l'annonce</li>
+          <li data-fr="Sélection des acquéreurs et organisation des visites" data-en="Buyer selection and viewings">Sélection des acquéreurs, visites</li>
+          <li data-fr="Négociation et accompagnement jusqu'à la signature" data-en="Negotiation and support through to signing">Négociation jusqu'à la signature</li>
+        </ul>
+        <a href="index.html#contact" class="ts-link" data-fr="Demander une estimation →" data-en="Request a valuation →">Demander une estimation →</a>
+      </div>
+
+      <div class="ts-card or rv d2">
+        <span class="ts-num">I</span>
+        <h3 data-fr="Investisseurs à distance" data-en="Remote investors">Investisseurs à distance</h3>
+        <p data-fr="Vous souhaitez investir à Saint-Martin depuis la métropole, les États-Unis ou les Pays-Bas ? Coordination locale complète, visites en votre nom et gestion administrative." data-en="Investing in Saint-Martin from mainland France, the US or the Netherlands? Full local coordination, viewings on your behalf and administrative management.">Investissement depuis l'étranger. Coordination locale complète, visites en votre nom.</p>
+        <ul class="ts-steps">
+          <li data-fr="Recherche selon vos critères à distance" data-en="Remote search to your criteria">Recherche selon vos critères</li>
+          <li data-fr="Visites et comptes-rendus détaillés en votre nom" data-en="Viewings and detailed reports on your behalf">Visites et comptes-rendus en votre nom</li>
+          <li data-fr="Synthèse juridique et fiscale adaptée à SXM" data-en="Legal and tax summary for SXM">Synthèse juridique et fiscale SXM</li>
+          <li data-fr="Coordination avec les notaires locaux" data-en="Coordination with local notaries">Coordination avec les notaires</li>
+        </ul>
+        <a href="index.html#contact" class="ts-link" data-fr="Me contacter →" data-en="Contact me →">Me contacter →</a>
+      </div>
+
+      <div class="ts-card lt rv d3">
+        <span class="ts-num">E</span>
+        <h3 data-fr="Estimation gratuite" data-en="Free valuation">Estimation gratuite</h3>
+        <p data-fr="Vous souhaitez connaître la valeur de votre bien à Saint-Martin, sans obligation de vendre ? Je vous fournis un avis de valeur basé sur le marché local sous 48h." data-en="Want to know the value of your property in Saint-Martin, with no obligation to sell? I provide a market-based opinion of value within 48h.">Avis de valeur basé sur le marché local sous 48h, sans engagement de vente.</p>
+        <ul class="ts-steps">
+          <li data-fr="Analyse des comparables récents à Saint-Martin" data-en="Analysis of recent comparables in Saint-Martin">Comparables récents à Saint-Martin</li>
+          <li data-fr="Prise en compte des spécificités du bien" data-en="Consideration of property specifics">Spécificités du bien prises en compte</li>
+          <li data-fr="Avis de valeur transmis sous 48h" data-en="Opinion of value delivered within 48h">Avis de valeur transmis sous 48h</li>
+          <li data-fr="Sans engagement de confier la vente" data-en="No obligation to list for sale">Sans engagement de vente</li>
+        </ul>
+        <a href="index.html#contact" class="ts-link" data-fr="Demander une estimation →" data-en="Request valuation →">Demander une estimation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE ESTIMATION -->
+<section class="estim" id="estimation">
+  <div class="si">
+    <div class="estim-inner">
+      <div class="rv">
+        <div class="ey" data-fr="Estimation gratuite" data-en="Free valuation">Estimation gratuite</div>
+        <h2 data-fr="Quelle est la valeur de votre bien<br><em>à Saint-Martin ?</em>" data-en="What is your property worth<br><em>in Saint-Martin?</em>">Quelle est la valeur de votre bien<br><em>à Saint-Martin ?</em></h2>
+        <p data-fr="Remplissez le formulaire ci-contre et je vous transmets un avis de valeur sous 48h, basé sur les transactions récentes à Saint-Martin. Sans engagement." data-en="Fill in the form and I'll send you an opinion of value within 48h, based on recent transactions in Saint-Martin. No commitment.">Remplissez le formulaire, je vous transmets un avis de valeur sous 48h basé sur les transactions récentes. Sans engagement.</p>
+      </div>
+      <div class="estim-form rv d2">
+        <div class="fg"><label class="fl" data-fr="Votre nom" data-en="Your name">Votre nom</label><input type="text" class="fi" placeholder="NOM Prénom"></div>
+        <div class="fg"><label class="fl" data-fr="Email ou téléphone" data-en="Email or phone">Email ou téléphone</label><input type="text" class="fi" placeholder="contact@email.com ou +590..."></div>
+        <div class="fg"><label class="fl" data-fr="Adresse du bien" data-en="Property address">Adresse du bien</label><input type="text" class="fi" placeholder="Adresse à Saint-Martin"></div>
+        <div class="fg"><label class="fl" data-fr="Type de bien" data-en="Property type">Type de bien</label>
+          <select class="fse">
+            <option data-fr="— Type de bien —" data-en="— Property type —">— Type de bien —</option>
+            <option data-fr="Appartement" data-en="Apartment">Appartement</option>
+            <option data-fr="Villa / Maison" data-en="Villa / House">Villa / Maison</option>
+            <option data-fr="Local commercial" data-en="Commercial premises">Local commercial</option>
+            <option data-fr="Terrain" data-en="Land">Terrain</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl" data-fr="Superficie approximative" data-en="Approximate size">Superficie approximative</label><input type="text" class="fi" placeholder="ex: 85 m²"></div>
+        <button class="fsb" data-fr="Demander une estimation gratuite" data-en="Request free valuation">Demander une estimation gratuite</button>
+        <p class="form-note" data-fr="Réponse sous 48h · Sans engagement · Confidentiel" data-en="48h response · No commitment · Confidential">Réponse sous 48h · Sans engagement · Confidentiel</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE MARCHÉ LOCAL -->
+<section class="marche">
+  <div class="si">
+    <div class="rv"><div class="ey" data-fr="Le marché de Saint-Martin" data-en="The Saint-Martin market">Le marché de Saint-Martin</div><h2 class="st">Ce qu'il faut savoir<br>avant d'<em>acheter ou vendre</em></h2></div>
+    <div class="marche-grid">
+      <div class="marche-content rv d1">
+        <p data-fr="Saint-Martin est une Collectivité d'Outre-Mer (COM) française, avec ses propres règles fiscales et urbanistiques. Le marché immobilier y est particulier : clientèle internationale, biens de standing, mais aussi copropriétés de taille plus modeste." data-en="Saint-Martin is a French Overseas Collectivity (COM) with its own tax and planning rules. The property market is distinctive: international buyers, high-end properties, but also smaller residential buildings.">Saint-Martin est une Collectivité d'Outre-Mer avec ses propres règles fiscales et urbanistiques. Une connaissance fine du marché local est indispensable.</p>
+        <p data-fr="Que vous soyez acheteur ou vendeur, il est essentiel de bien comprendre ces spécificités pour réaliser votre transaction dans les meilleures conditions." data-en="Whether you're buying or selling, understanding these specificities is essential to complete your transaction in the best conditions.">Que vous soyez acheteur ou vendeur, ces spécificités doivent être intégrées dans votre projet.</p>
+      </div>
+      <div class="marche-points rv d2">
+        <div class="mp"><div class="mp-icon">🏛️</div><div><h4 data-fr="Spécificités fiscales COM" data-en="COM tax specificities">Spécificités fiscales COM</h4><p data-fr="Saint-Martin applique ses propres règles fiscales, distinctes du droit métropolitain." data-en="Saint-Martin applies its own tax rules, separate from mainland law.">Saint-Martin applique ses propres règles fiscales, distinctes du droit métropolitain.</p></div></div>
+        <div class="mp"><div class="mp-icon">🗺️</div><div><h4 data-fr="Urbanisme et PLU" data-en="Planning rules">Urbanisme et PLU</h4><p data-fr="Le Plan Local d'Urbanisme de Saint-Martin encadre les constructions et les extensions." data-en="Saint-Martin's local planning plan governs construction and extensions.">Le PLU de Saint-Martin encadre strictement les constructions et extensions.</p></div></div>
+        <div class="mp"><div class="mp-icon">⚖️</div><div><h4 data-fr="Rôle du notaire" data-en="Notary's role">Rôle du notaire</h4><p data-fr="Le notaire est indispensable pour toute transaction immobilière. Je coordonne avec les études locales." data-en="A notary is essential for any property transaction. I coordinate with local practices.">Indispensable à toute transaction. Je coordonne avec les études notariales locales.</p></div></div>
+        <div class="mp"><div class="mp-icon">🌐</div><div><h4 data-fr="Clientèle internationale" data-en="International buyers">Clientèle internationale</h4><p data-fr="De nombreux acheteurs sont non-résidents ou étrangers. Service disponible en français et en anglais." data-en="Many buyers are non-residents or foreign nationals. Service available in French and English.">Nombreux acheteurs non-résidents. Service bilingue FR/EN disponible.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-trans">
+  <div class="si">
+    <div class="rv"><div class="ey" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</div><h2 class="st">Vos questions sur la<br><em>transaction à Saint-Martin</em></h2></div>
+    <div class="faq-grid rv d1">
+      <div class="faq-item"><h3 class="faq-q" data-fr="Quels sont vos honoraires en tant qu'agent commercial ?" data-en="What are your fees as a sales agent?">Quels sont vos honoraires ?</h3><p class="faq-a" data-fr="En tant qu'agent commercial, mes honoraires sont définis selon le barème de l'agence avec laquelle je travaille. Ils vous seront communiqués dès notre premier échange. L'estimation est toujours gratuite et sans engagement." data-en="As a sales agent, my fees follow the scale of the agency I work with. They'll be communicated at our first exchange. Valuation is always free and without commitment.">Mes honoraires suivent le barème de l'agence avec laquelle je travaille. L'estimation est toujours gratuite et sans engagement.</p></div>
+      <div class="faq-item"><h3 class="faq-q" data-fr="Combien de temps dure une transaction à Saint-Martin ?" data-en="How long does a transaction take in Saint-Martin?">Combien de temps dure une transaction ?</h3><p class="faq-a" data-fr="Le délai entre la signature du compromis et l'acte authentique est généralement de 2 à 4 mois, selon les conditions suspensives (financement, hypothèques...). La phase de recherche dépend de votre projet et du marché au moment de la recherche." data-en="The time between signing the preliminary agreement and the final deed is generally 2 to 4 months, depending on conditions precedent. The search phase depends on your project and market conditions.">Entre le compromis et l'acte : 2 à 4 mois selon les conditions. La phase de recherche varie selon le marché.</p></div>
+      <div class="faq-item"><h3 class="faq-q" data-fr="Puis-je acheter à distance sans venir sur l'île ?" data-en="Can I buy remotely without visiting?">Puis-je acheter à distance ?</h3><p class="faq-a" data-fr="Oui. Je peux organiser des visites en votre nom, vous transmettre des comptes-rendus détaillés (photos, vidéos, commentaires) et coordonner avec le notaire. Certaines étapes peuvent se faire en procuration." data-en="Yes. I can organise viewings on your behalf, send detailed reports (photos, videos, comments) and coordinate with the notary. Some steps can be done via power of attorney.">Oui. Je visite en votre nom avec comptes-rendus détaillés. Certaines étapes sont possibles par procuration.</p></div>
+      <div class="faq-item"><h3 class="faq-q" data-fr="Y a-t-il des spécificités pour un acheteur étranger ?" data-en="Any specificities for a foreign buyer?">Spécificités pour un acheteur étranger ?</h3><p class="faq-a" data-fr="Les ressortissants étrangers peuvent acheter librement à Saint-Martin. Il peut y avoir des spécificités fiscales selon votre pays de résidence. Je vous mets en relation avec un notaire qui pourra vous conseiller sur ce point." data-en="Foreign nationals can buy freely in Saint-Martin. There may be tax specificities depending on your country of residence. I connect you with a notary who can advise on this.">Achat possible pour tous les étrangers. Des spécificités fiscales peuvent s'appliquer selon votre pays de résidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand"><a href="index.html" class="nav-logo">Théo Loppinet<span>Immobilier · Saint-Martin</span></a><p>Agent commercial en immobilier et services aux copropriétés à Saint-Martin (97150).</p></div>
+      <div class="ft-col"><h4 data-fr="Services" data-en="Services">Services</h4><ul><li><a href="services.html" data-fr="Syndic bénévole" data-en="HOA support">Syndic bénévole</a></li><li><a href="transaction.html" data-fr="Transaction" data-en="Real estate">Transaction</a></li><li><a href="syndic-pro.html" data-fr="Syndic pro" data-en="Pro HOA">Syndic pro</a></li></ul></div>
+      <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:+33675862649">+33 6 75 86 26 49</a></li><li><a href="/cdn-cgi/l/email-protection#cfbba7aaa0e1a3a0bfbfa6a1aabb8fa8a2aea6a3e1aca0a2"><span class="__cf_email__" data-cfemail="56223e3339783a3926263f38332216313b373f3a7835393b">[email&#160;protected]</span></a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span class="ft-copy">© 2025 Théo Loppinet · Saint-Martin (97150)</span><div class="ft-legal"><a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></div></div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+  document.querySelectorAll('a,button,.ts-card,.mp').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.classList.add('hov');ring.classList.add('hov');});el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');ring.classList.remove('hov');});});
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vs');}),{threshold:.07,rootMargin:'0px 0px -36px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+  let lang='fr';
+  function tl(){lang=lang==='fr'?'en':'fr';document.getElementById('lb').textContent=lang==='fr'?'EN':'FR';document.documentElement.lang=lang;document.querySelectorAll('[

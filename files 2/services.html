@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catalogue des services aux syndics bénévoles à Saint-Martin — Documents de copropriété conformes en 48h, sans engagement. Convocation AG, PV, mise en demeure, appels de fonds.">
+  <meta name="keywords" content="syndic bénévole Saint-Martin documents, convocation AG copropriété SXM, PV assemblée générale Saint-Martin, mise en demeure copropriété, appel fonds Saint-Martin">
+  <title>Services aux syndics bénévoles — Théo Loppinet · Saint-Martin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════════════════
+   THÉO LOPPINET — STYLES PARTAGÉS
+   Utilisé par toutes les pages du site
+═══════════════════════════════════════════════════════ */
+
+:root {
+  --noir:      #141414;
+  --or:        #C9A84C;
+  --or-light:  #E2C97E;
+  --blanc:     #FAFAF8;
+  --gris:      #F0EDE6;
+  --gris-mid:  #9A9488;
+  --gris-dark: #3A3632;
+  --text:      #2C2825;
+  --fd: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Jost', sans-serif;
+  --lux: cubic-bezier(.25,.46,.45,.94);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--blanc); color: var(--text); overflow-x: hidden; cursor: none; }
+
+/* CURSEUR */
+.cursor      { position:fixed; width:8px; height:8px; background:var(--or); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
+.cursor-ring { position:fixed; width:36px; height:36px; border:1px solid var(--or); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .4s,height .4s,opacity .3s; opacity:.45; }
+.cursor.hov { width:14px; height:14px; }
+.cursor-ring.hov { width:52px; height:52px; opacity:.2; }
+
+/* LANG BAR */
+.lang-bar { position:fixed; top:0; left:0; right:0; height:34px; background:var(--noir); display:flex; align-items:center; justify-content:flex-end; padding:0 40px; z-index:1000; border-bottom:1px solid rgba(201,168,76,.12); }
+.lang-bar span { font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:rgba(250,250,248,.3); margin-right:14px; }
+.lang-btn { font-size:10px; letter-spacing:.18em; text-transform:uppercase; background:none; border:1px solid var(--or); color:var(--or); padding:3px 12px; cursor:none; transition:background .25s,color .25s; }
+.lang-btn:hover { background:var(--or); color:var(--noir); }
+
+/* NAV */
+nav { position:fixed; top:34px; left:0; right:0; height:66px; display:flex; align-items:center; justify-content:space-between; padding:0 52px; z-index:999; transition:background .4s,box-shadow .4s; }
+nav.scrolled, nav.solid { background:rgba(20,20,20,.97); backdrop-filter:blur(12px); box-shadow:0 1px 0 rgba(201,168,76,.12); }
+.nav-logo { font-family:var(--fd); font-size:20px; font-weight:500; color:var(--blanc); letter-spacing:.04em; text-decoration:none; display:flex; flex-direction:column; line-height:1.1; cursor:none; }
+.nav-logo span { font-size:9px; font-family:var(--fb); letter-spacing:.28em; text-transform:uppercase; color:var(--or); font-weight:400; }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(250,250,248,.6); text-decoration:none; position:relative; transition:color .3s; cursor:none; padding-bottom:2px; }
+.nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:1px; background:var(--or); transform:scaleX(0); transform-origin:right; transition:transform .35s var(--lux); }
+.nav-links a:hover, .nav-links a.hl { color:var(--or); }
+.nav-links a:hover::after, .nav-links a.hl::after { transform:scaleX(1); transform-origin:left; }
+.nav-cta { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:var(--or); color:var(--noir); border:none; padding:10px 22px; cursor:none; text-decoration:none; font-weight:500; transition:background .25s,transform .2s; }
+.nav-cta:hover { background:var(--or-light); transform:translateY(-1px); }
+
+/* PAGE HERO (pages internes) */
+.page-hero { padding:160px 0 80px; background:var(--noir); position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(201,168,76,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.025) 1px,transparent 1px); background-size:72px 72px; }
+.page-hero .si { position:relative; }
+.page-hero .ey { color:var(--or); }
+.page-hero h1 { font-family:var(--fd); font-size:clamp(40px,5vw,68px); font-weight:300; color:var(--blanc); line-height:1.05; margin-bottom:20px; }
+.page-hero h1 em { font-style:italic; color:var(--or); }
+.page-hero p { font-size:15px; line-height:1.85; color:rgba(250,250,248,.5); max-width:560px; font-weight:300; }
+
+/* SECTION BASE */
+.si { max-width:1180px; margin:0 auto; padding:0 52px; }
+.ey { font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--or); display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.ey::before { content:''; width:26px; height:1px; background:var(--or); }
+.st { font-family:var(--fd); font-size:clamp(30px,3.5vw,48px); font-weight:300; line-height:1.1; color:var(--text); margin-bottom:14px; }
+.st em { font-style:italic; color:var(--or); }
+.st.lt { color:var(--blanc); }
+.ss { font-size:14px; line-height:1.85; color:var(--gris-mid); max-width:500px; font-weight:300; }
+.ss.lt { color:rgba(250,250,248,.48); }
+
+/* BUTTONS */
+.btn-p { font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:500; background:var(--or); color:var(--noir); border:none; padding:14px 30px; text-decoration:none; cursor:none; transition:background .25s,transform .25s,box-shadow .25s; display:inline-block; }
+.btn-p:hover { background:var(--or-light); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,168,76,.2); }
+.btn-g { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:none; color:rgba(250,250,248,.55); border:1px solid rgba(250,250,248,.15); padding:14px 30px; text-decoration:none; cursor:none; transition:border-color .25s,color .25s; display:inline-block; }
+.btn-g:hover { border-color:var(--or); color:var(--or); }
+.btn-dark { font-size:10px; letter-spacing:.2em; text-transform:uppercase; background:none; color:var(--or); border:1px solid rgba(201,168,76,.35); padding:13px 28px; text-decoration:none; cursor:none; transition:background .25s,color .25s; display:inline-block; }
+.btn-dark:hover { background:var(--or); color:var(--noir); }
+
+/* REVEAL */
+.rv { opacity:0; transform:translateY(24px); transition:opacity .7s var(--lux),transform .7s var(--lux); }
+.rv.vs { opacity:1; transform:none; }
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+
+/* FOOTER */
+footer { background:#0E0E0E; padding:52px 0 28px; border-top:1px solid rgba(201,168,76,.07); }
+.ft-inner { max-width:1180px; margin:0 auto; padding:0 52px; }
+.ft-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.05); margin-bottom:28px; }
+.ft-brand p { font-size:12px; color:rgba(250,250,248,.26); line-height:1.7; font-weight:300; margin-top:12px; }
+.ft-col h4 { font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--or); margin-bottom:16px; }
+.ft-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.ft-col ul li a { font-size:12px; color:rgba(250,250,248,.32); text-decoration:none; transition:color .25s; cursor:none; }
+.ft-col ul li a:hover { color:var(--or); }
+.ft-bottom { display:flex; justify-content:space-between; align-items:center; }
+.ft-copy { font-size:11px; color:rgba(250,250,248,.16); }
+.ft-legal { display:flex; gap:18px; }
+.ft-legal a { font-size:11px; color:rgba(250,250,248,.16); text-decoration:none; cursor:none; transition:color .25s; }
+.ft-legal a:hover { color:var(--or); }
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav{padding:0 28px}.si{padding:0 28px}.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.ft-top{grid-template-columns:1fr}.ft-bottom{flex-direction:column;gap:10px;text-align:center}body{cursor:auto}.cursor,.cursor-ring{display:none}}
+
+</style>
+  <style>
+    .contact-bar { background:var(--or); padding:12px 52px; display:flex; align-items:center; justify-content:flex-end; gap:36px; margin-top:100px; }
+    .contact-bar a { font-family:var(--fb); font-size:11px; letter-spacing:.12em; color:var(--noir); text-decoration:none; font-weight:500; cursor:none; display:flex; align-items:center; gap:8px; transition:opacity .2s; }
+    .contact-bar a:hover { opacity:.75; }
+    .contact-bar span { width:1px; height:18px; background:rgba(20,20,20,.2); }
+
+    .catalogue { padding:72px 0 100px; background:var(--blanc); }
+
+    /* Phrase marketing */
+    .marketing-band { background:var(--noir); padding:44px 52px; margin-bottom:72px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
+    .marketing-band h2 { font-family:var(--fd); font-size:clamp(24px,3vw,36px); font-weight:300; color:var(--blanc); line-height:1.2; }
+    .marketing-band h2 em { font-style:italic; color:var(--or); }
+    .marketing-band p { font-size:13.5px; color:rgba(250,250,248,.48); font-weight:300; max-width:380px; line-height:1.75; }
+    .marketing-band a { flex-shrink:0; font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:500; background:var(--or); color:var(--noir); padding:14px 28px; text-decoration:none; cursor:none; transition:background .25s; white-space:nowrap; }
+    .marketing-band a:hover { background:var(--or-light); }
+
+    /* Bloc réassurance */
+    .reassur { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-bottom:72px; }
+    .re-item { background:var(--gris); padding:24px 28px; display:flex; align-items:flex-start; gap:14px; }
+    .re-item h4 { font-size:13px; font-weight:500; color:var(--text); margin-bottom:3px; }
+    .re-item p { font-size:11.5px; color:var(--gris-mid); line-height:1.6; font-weight:300; }
+    .re-dot { width:8px; height:8px; background:var(--or); border-radius:50%; flex-shrink:0; margin-top:5px; }
+
+    /* Catégorie */
+    .cat-section { margin-bottom:60px; }
+    .cat-head { display:flex; align-items:center; gap:16px; margin-bottom:28px; padding-bottom:14px; border-bottom:1px solid rgba(0,0,0,.07); }
+    .cat-head h2 { font-family:var(--fd); font-size:26px; font-weight:400; color:var(--text); }
+    .cat-badge { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--or); background:rgba(201,168,76,.09); padding:4px 12px; border:1px solid rgba(201,168,76,.2); }
+
+    /* Grilles */
+    .sg3 { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .sg2 { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+    .sg1 { display:grid; grid-template-columns:1fr; gap:2px; }
+
+    /* Card prestation */
+    .sc { background:var(--gris); padding:32px 28px; position:relative; overflow:hidden; transition:transform .3s var(--lux); cursor:none; }
+    .sc::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--or),var(--or-light)); transform:scaleX(0); transform-origin:left; transition:transform .35s var(--lux); }
+    .sc:hover { transform:translateY(-3px); }
+    .sc:hover::after { transform:scaleX(1); }
+    .sc.dark { background:var(--noir); }
+    .sc.pack { background:var(--noir); border:1px solid rgba(201,168,76,.2); }
+    .sc.pack-gold { background:var(--or); }
+
+    .sc-name { font-family:var(--fd); font-size:20px; font-weight:400; color:var(--text); margin-bottom:7px; line-height:1.2; }
+    .sc.dark .sc-name, .sc.pack .sc-name { color:var(--blanc); }
+    .sc.pack-gold .sc-name { color:var(--noir); }
+
+    .sc-desc { font-size:12.5px; line-height:1.72; color:var(--gris-mid); font-weight:300; margin-bottom:12px; }
+    .sc.dark .sc-desc, .sc.pack .sc-desc { color:rgba(250,250,248,.48); }
+    .sc.pack-gold .sc-desc { color:rgba(20,20,20,.6); }
+
+    .sc-incl { list-style:none; display:flex; flex-direction:column; gap:5px; margin-bottom:16px; }
+    .sc-incl li { font-size:11.5px; color:var(--gris-mid); font-weight:300; padding-left:14px; position:relative; }
+    .sc-incl li::before { content:'—'; position:absolute; left:0; color:var(--or); }
+    .sc.dark .sc-incl li, .sc.pack .sc-incl li { color:rgba(250,250,248,.45); }
+    .sc.pack-gold .sc-incl li { color:rgba(20,20,20,.6); }
+
+    .sc-docs { margin-top:12px; padding-top:12px; border-top:1px solid rgba(0,0,0,.07); }
+    .sc.dark .sc-docs, .sc.pack .sc-docs { border-top-color:rgba(255,255,255,.06); }
+    .sc.pack-gold .sc-docs { border-top-color:rgba(20,20,20,.1); }
+    .sc-docs-label { font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--or); margin-bottom:6px; display:block; }
+    .sc.pack-gold .sc-docs-label { color:var(--noir); }
+    .sc-docs ul { list-style:none; display:flex; flex-direction:column; gap:3px; }
+    .sc-docs ul li { font-size:11px; color:var(--gris-mid); font-weight:300; padding-left:12px; position:relative; }
+    .sc-docs ul li::before { content:'·'; position:absolute; left:0; color:var(--or); }
+    .sc.dark .sc-docs ul li, .sc.pack .sc-docs ul li { color:rgba(250,250,248,.38); }
+    .sc.pack-gold .sc-docs ul li { color:rgba(20,20,20,.55); }
+
+    .sc-price { font-family:var(--fd); font-size:26px; color:var(--or); font-weight:400; margin-top:16px; }
+    .sc.pack-gold .sc-price { color:var(--noir); }
+    .sc-note { font-size:10.5px; color:var(--gris-mid); font-weight:300; }
+    .sc.dark .sc-note, .sc.pack .sc-note { color:rgba(250,250,248,.3); }
+    .sc.pack-gold .sc-note { color:rgba(20,20,20,.5); }
+
+    .sc-cta { display:inline-block; margin-top:16px; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--or); text-decoration:none; cursor:none; }
+    .sc.pack-gold .sc-cta { color:var(--noir); text-decoration:underline; }
+
+    /* Pack bannière top */
+    .pack-star { background:var(--or); padding:44px 52px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; margin-bottom:60px; }
+    .pack-star h2 { font-family:var(--fd); font-size:clamp(24px,3vw,34px); font-weight:300; color:var(--noir); margin-bottom:10px; }
+    .pack-star p { font-size:13.5px; color:rgba(20,20,20,.62); font-weight:300; line-height:1.72; }
+    .pack-star ul { list-style:none; display:flex; flex-direction:column; gap:5px; margin-top:12px; }
+    .pack-star ul li { font-size:13px; color:rgba(20,20,20,.65); font-weight:300; padding-left:14px; position:relative; }
+    .pack-star ul li::before { content:'✓'; position:absolute; left:0; font-weight:600; color:var(--noir); }
+    .pack-price-box { text-align:right; flex-shrink:0; }
+    .pack-price-box .big { font-family:var(--fd); font-size:54px; color:var(--noir); font-weight:300; line-height:1; }
+    .pack-price-box .note { font-size:11px; color:rgba(20,20,20,.5); margin-top:4px; margin-bottom:16px; }
+    .pack-price-box a { display:block; font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; background:var(--noir); color:var(--or); padding:13px 28px; text-decoration:none; cursor:none; transition:background .25s; white-space:nowrap; }
+    .pack-price-box a:hover { background:#2A2A2A; }
+
+    /* Note offerte */
+    .note-offerte { background:rgba(201,168,76,.08); border:1px solid rgba(201,168,76,.2); padding:16px 24px; margin-top:24px; font-size:13px; color:var(--gris-dark); font-weight:300; line-height:1.65; }
+    .note-offerte strong { color:var(--or); font-weight:500; }
+
+    /* FAQ */
+    .faq { padding:80px 0; background:var(--gris); }
+    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:48px; }
+    .faq-item { border-bottom:1px solid rgba(0,0,0,.07); padding-bottom:22px; }
+    .faq-q { font-family:var(--fd); font-size:19px; font-weight:400; color:var(--text); margin-bottom:9px; }
+    .faq-a { font-size:13.5px; line-height:1.78; color:var(--gris-mid); font-weight:300; }
+
+    /* CTA final */
+    .cta-band { padding:80px 0; background:var(--noir); text-align:center; }
+    .cta-band h2 { font-family:var(--fd); font-size:clamp(30px,4vw,50px); font-weight:300; color:var(--blanc); margin-bottom:14px; }
+    .cta-band h2 em { font-style:italic; color:var(--or); }
+    .cta-band p { font-size:14px; color:rgba(250,250,248,.45); font-weight:300; margin-bottom:32px; max-width:460px; margin-left:auto; margin-right:auto; }
+    .cta-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+    @media(max-width:1024px){.contact-bar{margin-top:100px;padding:12px 28px}.marketing-band{flex-direction:column;align-items:flex-start}.pack-star{grid-template-columns:1fr}.pack-price-box{text-align:left}.sg3{grid-template-columns:1fr 1fr}.reassur{grid-template-columns:1fr 1fr}.faq-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){.sg3,.sg2,.reassur{grid-template-columns:1fr}.contact-bar{flex-direction:column;align-items:flex-start;gap:12px}.contact-bar span{display:none}}
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<div class="lang-bar">
+  <span>Saint-Martin · 97150</span>
+  <button class="lang-btn" onclick="tl()" id="lb">EN</button>
+</div>
+
+<nav id="nav" class="solid">
+  <a href="index.html" class="nav-logo">Théo Loppinet<span>Immobilier · Saint-Martin</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html" class="hl" data-fr="Syndic bénévole" data-en="HOA Support">Syndic bénévole</a></li>
+    <li><a href="transaction.html" data-fr="Transaction" data-en="Real Estate">Transaction</a></li>
+    <li><a href="syndic-pro.html" data-fr="Syndic pro" data-en="Pro HOA">Syndic pro</a></li>
+    <li><a href="blog.html" data-fr="Conseils" data-en="Insights">Conseils</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta" data-fr="Nous contacter" data-en="Contact">Nous contacter</a>
+</nav>
+
+<!-- Barre contact visible -->
+<div class="contact-bar">
+  <a href="tel:+33675862649">+33 6 75 86 26 49</a>
+  <span></span>
+  <a href="/cdn-cgi/l/email-protection#abdfc3cec485c7c4dbdbc2c5cedfebccc6cac2c785c8c4c6"><span class="__cf_email__" data-cfemail="91e5f9f4febffdfee1e1f8fff4e5d1f6fcf0f8fdbff2fefc">[email&#160;protected]</span></a>
+  <span></span>
+  <a href="/cdn-cgi/l/email-protection#b5c1ddd0daf5c6dcd2dbd4c1c0c7d098c6cdd89bd6dad8"><span class="__cf_email__" data-cfemail="deaab6bbb19eadb7b9b0bfaaabacbbf3ada6b3f0bdb1b3">[email&#160;protected]</span></a>
+  <span></span>
+  <a href="index.html#contact" data-fr="Faire une demande" data-en="Make a request">Faire une demande</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero" style="margin-top:0;padding-top:20px;">
+  <div class="si">
+    <div class="ey rv" data-fr="Services aux syndics bénévoles" data-en="HOA volunteer support">Services aux syndics bénévoles</div>
+    <h1 class="rv d1" data-fr="Vos documents de copropriété,<br><em>en 48h, sans prise de tête.</em>" data-en="Your HOA documents,<br><em>in 48h, hassle-free.</em>">Vos documents de copropriété,<br><em>en 48h, sans prise de tête.</em></h1>
+    <p class="rv d2" data-fr="Facturés au Syndicat des Copropriétaires. Sans abonnement, sans engagement." data-en="Billed to the Co-owners' Syndicate. No subscription, no commitment.">Facturés au Syndicat des Copropriétaires. Sans abonnement, sans engagement.</p>
+  </div>
+</div>
+
+<!-- CATALOGUE -->
+<section class="catalogue">
+  <div class="si">
+
+    <!-- Phrase marketing -->
+    <div class="marketing-band rv">
+      <div>
+        <h2 data-fr="Un syndic <em>quand vous en avez besoin,</em><br>rien de plus." data-en="A manager <em>when you need one,</em><br>nothing more.">Un syndic <em>quand vous en avez besoin,</em><br>rien de plus.</h2>
+      </div>
+      <p data-fr="Vous commandez le document dont vous avez besoin, je le rédige, vous le recevez sous 48h. Sans contrat, sans engagement, sans surprise." data-en="You order the document you need, I draft it, you receive it within 48h. No contract, no commitment, no surprise.">Vous commandez le document dont vous avez besoin, je le rédige, vous le recevez sous 48h. Sans contrat, sans engagement, sans surprise.</p>
+      <a href="index.html#contact" data-fr="Faire une demande" data-en="Make a request">Faire une demande</a>
+    </div>
+
+    <!-- Réassurance -->
+    <div class="reassur rv">
+      <div class="re-item"><div class="re-dot"></div><div><h4 data-fr="Conformes loi 1965" data-en="Compliant with 1965 law">Conformes loi 1965</h4><p data-fr="Tous les documents respectent les textes applicables à Saint-Martin (COM)." data-en="All documents comply with texts applicable in Saint-Martin (COM).">Textes applicables à Saint-Martin (COM).</p></div></div>
+      <div class="re-item"><div class="re-dot"></div><div><h4 data-fr="Livraison 48h garantie" data-en="48h delivery guaranteed">Livraison 48h garantie</h4><p data-fr="À compter de la réception complète de vos informations." data-en="From receipt of your complete information.">À compter de la réception de vos informations.</p></div></div>
+      <div class="re-item"><div class="re-dot"></div><div><h4 data-fr="Facturé au SDC" data-en="Billed to the syndicate">Facturé au SDC</h4><p data-fr="La facture est au nom du Syndicat des Copropriétaires. Paiement depuis le compte séparé." data-en="Invoice in the Co-owners' Syndicate name. Payment from the separate account.">Facture au nom du Syndicat, paiement depuis le compte séparé.</p></div></div>
+      <div class="re-item"><div class="re-dot"></div><div><h4 data-fr="Paiement après validation" data-en="Payment after validation">Paiement après validation</h4><p data-fr="Vous recevez le document, vous le validez, puis vous réglez. Aucune avance." data-en="You receive the document, approve it, then pay. No advance payment.">Document reçu et validé avant paiement.</p></div></div>
+    </div>
+
+    <!-- PACK TOP PRIORITAIRE -->
+    <div class="pack-star rv">
+      <div>
+        <div class="ey" style="margin-bottom:12px" data-fr="Pack tout compris — Le plus demandé" data-en="All-inclusive pack — Most requested">Pack tout compris — Le plus demandé</div>
+        <h2 data-fr="Pack annuel — Convocation AG + Annexes + PV + Budget + 4 appels de fonds" data-en="Annual pack — Meeting notice + Appendices + Minutes + Budget + 4 fee calls">Pack annuel — Convocation AG + Annexes + PV + Budget + 4 appels de fonds</h2>
+        <p data-fr="Tout ce dont votre copropriété a besoin sur une année, en une seule commande. Je m'occupe de tout, vous n'avez rien à gérer." data-en="Everything your building needs for a full year, in one order. I handle everything, you manage nothing.">Tout ce dont votre copropriété a besoin sur une année, en une seule commande.</p>
+        <ul>
+          <li data-fr="Convocation complète (OdJ + annexes + pouvoirs + feuille de présence offerte)" data-en="Full notice (agenda + appendices + proxies + free attendance sheet)">Convocation complète — OdJ + annexes + pouvoirs (feuille de présence offerte)</li>
+          <li data-fr="Procès-verbal d'AG" data-en="Meeting minutes">Procès-verbal d'AG</li>
+          <li data-fr="Budget prévisionnel N+1" data-en="N+1 budget forecast">Budget prévisionnel N+1</li>
+          <li data-fr="4 appels de fonds trimestriels sur l'année (jusqu'à 10 lots)" data-en="4 quarterly fee calls (up to 10 units)">4 appels de fonds trimestriels (jusqu'à 10 lots)</li>
+          <li data-fr="Assistance immatriculation / mise à jour registre national offerte" data-en="Free registration / national register update support">Assistance registre national offerte</li>
+        </ul>
+      </div>
+      <div class="pack-price-box">
+        <div class="big">500 €</div>
+        <div class="note" data-fr="Facturé au Syndicat des Copropriétaires" data-en="Billed to the Co-owners' Syndicate">Facturé au Syndicat des Copropriétaires</div>
+        <a href="index.html#contact" data-fr="Commander ce pack" data-en="Order this pack">Commander ce pack</a>
+      </div>
+    </div>
+
+    <!-- AG & ADMINISTRATION -->
+    <div class="cat-section rv">
+      <div class="cat-head">
+        <h2 data-fr="Assemblée générale & Administration" data-en="General meeting & Administration">Assemblée générale &amp; Administration</h2>
+        <span class="cat-badge" data-fr="Documents AG" data-en="Meeting docs">Documents AG</span>
+      </div>
+      <div class="sg3" style="margin-bottom:2px">
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Ordre du jour seul" data-en="Agenda only">Ordre du jour seul</h3>
+          <p class="sc-desc" data-fr="Rédaction de l'ordre du jour de votre AG avec les résolutions souhaitées." data-en="Drafting of your meeting agenda with requested resolutions.">Rédaction de l'ordre du jour avec les résolutions souhaitées.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nom de la copropriété + date de l'AG" data-en="Building name + meeting date">Nom de la copropriété + date de l'AG</li>
+              <li data-fr="Liste des résolutions souhaitées" data-en="List of requested resolutions">Liste des résolutions souhaitées</li>
+            </ul>
+          </div>
+          <div class="sc-price">110 €</div>
+          <div class="sc-note" data-fr="Par AG · Livraison PDF 48h" data-en="Per meeting · 48h PDF delivery">Par AG · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Convocation complète (OdJ + annexes + pouvoirs)" data-en="Full notice (agenda + appendices + proxies)">Convocation complète — OdJ + annexes + pouvoirs</h3>
+          <p class="sc-desc" data-fr="Ordre du jour accompagné des documents comptables requis par la loi (Annexes SRU)." data-en="Agenda with legally required accounting documents (SRU appendices).">Ordre du jour avec Annexes SRU conformes au plan comptable des copropriétés.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nom de la copropriété + date de l'AG + résolutions" data-en="Building name + date + resolutions">Nom, date AG, résolutions</li>
+              <li data-fr="Relevés bancaires du compte syndicat sur l'exercice" data-en="Bank statements of syndicate account for the period">Relevés bancaires du compte syndicat</li>
+              <li data-fr="Factures ou tableau des dépenses de l'année" data-en="Invoices or annual expenditure table">Factures ou tableau des dépenses</li>
+              <li data-fr="Budget N-1 si disponible" data-en="Previous year budget if available">Budget N-1 si disponible</li>
+            </ul>
+          </div>
+          <div class="sc-price">250 €</div>
+          <div class="sc-note" data-fr="Feuille de présence offerte · Livraison PDF 48h" data-en="Attendance sheet free · 48h PDF delivery">Feuille de présence offerte · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Ordre du jour + Annexes + Pouvoirs" data-en="Agenda + Appendices + Proxies">Ordre du jour + Annexes + Pouvoirs / votes par correspondance</h3>
+          <p class="sc-desc" data-fr="Version complète avec formulaires de pouvoir et bulletins de vote par correspondance." data-en="Full version with proxy forms and postal voting ballots.">Version complète avec formulaires de pouvoir et bulletins de vote.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Tout ce qui précède (nom, date, résolutions, relevés, factures)" data-en="All of the above (name, date, resolutions, statements, invoices)">Tout ce qui précède</li>
+              <li data-fr="Liste complète des copropriétaires avec adresses et coordonnées" data-en="Full co-owners list with addresses and contact details">Liste copropriétaires avec coordonnées complètes</li>
+            </ul>
+          </div>
+          <div class="sc-price">250 €</div>
+          <div class="sc-note" data-fr="Par AG · Livraison PDF 48h" data-en="Per meeting · 48h PDF delivery">Par AG · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+      </div>
+      <div class="sg3">
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Ordre du jour seul" data-en="Agenda only">Ordre du jour seul</h3>
+          <p class="sc-desc" data-fr="Rédaction de l'ordre du jour seul avec les résolutions souhaitées." data-en="Drafting of agenda only with requested resolutions.">Rédaction de l'ordre du jour seul avec les résolutions souhaitées.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nom et adresse de la copropriété" data-en="Building name and address">Nom et adresse de la copropriété</li>
+              <li data-fr="Date, heure et lieu de l'AG" data-en="Date, time and venue of meeting">Date, heure et lieu de l'AG</li>
+              <li data-fr="Liste copropriétaires — adresses, lots, tantièmes" data-en="Co-owners list — addresses, units, shares">Liste copropriétaires (adresses, lots, tantièmes)</li>
+              <li data-fr="Résolutions souhaitées à l'ordre du jour" data-en="Requested agenda resolutions">Résolutions souhaitées</li>
+              <li data-fr="IBAN du syndicat" data-en="Syndicate IBAN">IBAN du syndicat</li>
+            </ul>
+          </div>
+          <div class="sc-price">110 €</div>
+          <div class="sc-note" data-fr="Par AG · Livraison PDF 48h" data-en="Per building · 48h PDF delivery">Par copropriété · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Convocation AG extraordinaire" data-en="Extraordinary meeting notice">Convocation AG extraordinaire</h3>
+          <p class="sc-desc" data-fr="Pour les décisions urgentes nécessitant une AG hors calendrier. Motif et pièces justificatives requis." data-en="For urgent decisions requiring an out-of-schedule meeting. Reason and supporting documents required.">Pour décisions urgentes. Motif précis et pièces justificatives requis.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Mêmes éléments que la convocation ordinaire" data-en="Same elements as ordinary notice">Mêmes éléments que convocation ordinaire</li>
+              <li data-fr="Motif précis de la convocation extraordinaire" data-en="Precise reason for extraordinary meeting">Motif précis de la convocation</li>
+              <li data-fr="Documents justificatifs (devis, sinistre, demande...)" data-en="Supporting documents (quote, claim, request...)">Documents justificatifs éventuels</li>
+            </ul>
+          </div>
+          <div class="sc-price">150 €</div>
+          <div class="sc-note" data-fr="Par copropriété · Livraison PDF 48h" data-en="Per building · 48h PDF delivery">Par copropriété · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Feuille de présence" data-en="Attendance sheet">Feuille de présence</h3>
+          <p class="sc-desc" data-fr="Feuille d'émargement personnalisée avec la liste des copropriétaires, lots et tantièmes." data-en="Personalised attendance sheet with co-owners list, units and shares.">Feuille d'émargement personnalisée avec copropriétaires, lots et tantièmes.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Liste des copropriétaires avec lots et tantièmes" data-en="Co-owners list with units and shares">Liste copropriétaires, lots et tantièmes</li>
+              <li data-fr="Date et nature de l'AG" data-en="Date and type of meeting">Date et nature de l'AG</li>
+            </ul>
+          </div>
+          <div class="sc-price">30 €</div>
+          <div class="sc-note" data-fr="Incluse dans le Pack AG · Livraison 48h" data-en="Included in Meeting Pack · 48h delivery">Incluse dans le Pack AG · Livraison 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+      </div>
+
+      <!-- Ligne PV + Pack AG -->
+      <div class="sg2" style="margin-top:2px">
+
+        <div class="sc dark">
+          <h3 class="sc-name" data-fr="Procès-verbal d'AG" data-en="Meeting minutes">Procès-verbal d'AG</h3>
+          <p class="sc-desc" data-fr="PV conforme rédigé sur la base des résolutions votées lors de votre assemblée." data-en="Compliant minutes drafted from your meeting's voted resolutions.">PV conforme rédigé selon vos résolutions votées et résultats de vote.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Ordre du jour de l'AG tenue" data-en="Agenda of the meeting held">Ordre du jour de l'AG</li>
+              <li data-fr="Résultats des votes par résolution (pour/contre/abstentions, en tantièmes)" data-en="Vote results per resolution (for/against/abstentions, in shares)">Résultats par résolution (pour/contre/abstentions + tantièmes)</li>
+              <li data-fr="Liste présents, représentés et défaillants avec tantièmes" data-en="List of present, represented and absent co-owners with shares">Présents, représentés, défaillants + tantièmes</li>
+              <li data-fr="Noms du Président, Scrutateur et Secrétaire de séance" data-en="Names of President, Scrutineer and Secretary">Noms du bureau (Président, Scrutateur, Secrétaire)</li>
+            </ul>
+          </div>
+          <div class="sc-price">100 €</div>
+          <div class="sc-note" data-fr="Par AG · Livraison PDF 48h" data-en="Per meeting · 48h PDF delivery">Par AG · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc pack">
+          <div class="ey" style="margin-bottom:10px" data-fr="Pack AG complet" data-en="Full meeting pack">Pack AG complet</div>
+          <h3 class="sc-name" data-fr="Convocation + Annexes + Pouvoirs + PV" data-en="Notice + Appendices + Proxies + Minutes">Convocation + Annexes + Pouvoirs + PV</h3>
+          <p class="sc-desc" data-fr="Tout ce dont vous avez besoin pour une assemblée générale conforme, en une seule commande." data-en="Everything you need for a compliant meeting, in one order.">Tout pour une AG conforme, en une seule commande.</p>
+          <ul class="sc-incl">
+            <li data-fr="Convocation nominative + ordre du jour" data-en="Individual notice + agenda">Convocation nominative + ordre du jour</li>
+            <li data-fr="Feuille de présence" data-en="Attendance sheet">Feuille de présence</li>
+            <li data-fr="Formulaires de pouvoir et votes par correspondance" data-en="Proxy and postal voting forms">Pouvoirs et votes par correspondance</li>
+            <li data-fr="Annexes comptables SRU 1 à 5 + RGD + Solde copropriétaires" data-en="SRU accounting appendices 1-5 + ledger + owner balances">Annexes SRU + RGD + Solde copropriétaires</li>
+            <li data-fr="Procès-verbal d'AG" data-en="Meeting minutes">Procès-verbal d'AG</li>
+            <li data-fr="Assistance immatriculation registre national offerte" data-en="Free national register registration support">Assistance registre national offerte</li>
+          </ul>
+          <div class="sc-price">300 € <span style="font-size:14px;color:rgba(201,168,76,.45);font-family:var(--fb);font-weight:300" data-fr="au lieu de ~380 €" data-en="instead of ~€380">au lieu de ~380 €</span></div>
+          <div class="sc-note" data-fr="Facturé au SDC · Livraison PDF 48h" data-en="Billed to syndicate · 48h PDF delivery">Facturé au SDC · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander ce pack" data-en="Order this pack">Commander ce pack</a>
+        </div>
+
+      </div>
+
+      <!-- Note registre -->
+      <div class="note-offerte rv d1">
+        <strong data-fr="Assistance immatriculation et mise à jour du Registre National des Copropriétés" data-en="National HOA Register registration and update support">Assistance immatriculation et mise à jour du Registre National des Copropriétés</strong>
+        <span data-fr=" — offerte pour toute commande d'un pack." data-en=" — free with any pack order."> — offerte pour toute commande d'un pack.</span>
+        <span data-fr=" Tarif hors pack : 100 €." data-en=" Rate without pack: €100."> Tarif hors pack : 100 €.</span>
+      </div>
+    </div>
+
+    <!-- COMPTABILITÉ -->
+    <div class="cat-section rv">
+      <div class="cat-head">
+        <h2 data-fr="Comptabilité & Finances" data-en="Accounting & Finance">Comptabilité &amp; Finances</h2>
+        <span class="cat-badge" data-fr="Documents financiers" data-en="Financial docs">Documents financiers</span>
+      </div>
+      <div class="sg2">
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Budget prévisionnel" data-en="Budget forecast">Budget prévisionnel</h3>
+          <p class="sc-desc" data-fr="Établissement du budget prévisionnel pour l'exercice à venir, à partir des charges connues et des décisions d'AG." data-en="Budget forecast for the coming year, based on known charges and meeting decisions.">Budget prévisionnel pour l'exercice à venir.</p>
+          <ul class="sc-incl">
+            <li data-fr="Budget par poste de charges" data-en="Budget per charge category">Budget par poste de charges</li>
+            <li data-fr="Calcul des appels trimestriels par lot" data-en="Quarterly call calculation per unit">Calcul des appels trimestriels par lot</li>
+          </ul>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Charges de l'exercice précédent (tableau ou RGD existant)" data-en="Previous year charges (table or existing ledger)">Charges N-1 (tableau ou RGD existant)</li>
+              <li data-fr="Contrats en cours avec montants annuels" data-en="Current contracts with annual amounts">Contrats en cours + montants</li>
+              <li data-fr="Décisions d'AG impactant les charges" data-en="Meeting decisions affecting charges">Décisions d'AG impactant les charges</li>
+            </ul>
+          </div>
+          <div class="sc-price">90 €</div>
+          <div class="sc-note" data-fr="Par exercice · Inclus dans les packs" data-en="Per financial year · Included in packs">Par exercice · Inclus dans les packs</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Appels de fonds trimestriels" data-en="Quarterly maintenance fee calls">Appels de fonds trimestriels</h3>
+          <p class="sc-desc" data-fr="Appels personnalisés par lot avec répartition par clé et situation du compte. 50 € par trimestre ou 150 € pour les 4 appels de l'année." data-en="Personalised calls per unit with key distribution and account summary. €50 per quarter or €150 for all 4 annual calls.">50 € par trimestre ou 150 € pour les 4 appels annuels.</p>
+          <ul class="sc-incl">
+            <li data-fr="Un courrier par copropriétaire / lot" data-en="One letter per co-owner / unit">Un courrier par copropriétaire</li>
+            <li data-fr="Répartition par clé de charges (001, 101, 102...)" data-en="Key distribution (001, 101, 102...)">Répartition par clé de charges</li>
+            <li data-fr="Situation du compte et IBAN inclus" data-en="Account summary and IBAN included">Situation du compte + IBAN</li>
+          </ul>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Budget prévisionnel voté en AG" data-en="Budget voted at meeting">Budget prévisionnel voté</li>
+              <li data-fr="Liste copropriétaires avec lots, tantièmes et adresses postales" data-en="Co-owners with units, shares and postal addresses">Liste copropriétaires (lots, tantièmes, adresses)</li>
+              <li data-fr="Clés de répartition applicables" data-en="Applicable distribution keys">Clés de répartition</li>
+              <li data-fr="IBAN du syndicat" data-en="Syndicate IBAN">IBAN du syndicat</li>
+            </ul>
+          </div>
+          <div class="sc-price">50 € <span style="font-size:14px;color:var(--gris-mid);font-family:var(--fb);font-weight:300">/trimestre</span></div>
+          <div class="sc-note" data-fr="ou 150 € pour les 4 appels annuels · Tarif dégressif au-delà de 10 lots" data-en="or €150 for all 4 annual calls · Reduced rate above 10 units">ou 150 € pour les 4 appels annuels · Dégressif au-delà de 10 lots</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RECOUVREMENT & COURRIERS -->
+    <div class="cat-section rv">
+      <div class="cat-head">
+        <h2 data-fr="Recouvrement & Courriers" data-en="Debt recovery & Letters">Recouvrement &amp; Courriers</h2>
+        <span class="cat-badge" data-fr="Courriers officiels" data-en="Official letters">Courriers officiels</span>
+      </div>
+      <div class="sg3">
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Lettre de relance (n°1 ou n°2)" data-en="Reminder letter (1st or 2nd)">Lettre de relance (n°1 ou n°2)</h3>
+          <p class="sc-desc" data-fr="Relance amiable ou ferme pour charges impayées, avec tableau des échéances et coordonnées bancaires." data-en="Amicable or firm reminder for unpaid charges, with payment schedule and bank details.">Relance amiable ou ferme avec tableau des échéances.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nom et adresse du copropriétaire débiteur, numéro de lot" data-en="Name, address and unit number of debtor co-owner">Nom, adresse et lot du débiteur</li>
+              <li data-fr="Tableau des sommes impayées par période" data-en="Table of unpaid amounts by period">Tableau des impayés par période</li>
+              <li data-fr="IBAN du syndicat" data-en="Syndicate IBAN">IBAN du syndicat</li>
+            </ul>
+          </div>
+          <div class="sc-price">50 €</div>
+          <div class="sc-note" data-fr="Par débiteur · Livraison PDF 48h" data-en="Per debtor · 48h PDF delivery">Par débiteur · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Mise en demeure" data-en="Formal notice">Mise en demeure</h3>
+          <p class="sc-desc" data-fr="Mise en demeure formelle de payer, avec tableau des sommes dues et fondements légaux (art. 14, 19-2 loi 1965)." data-en="Formal payment notice with amounts due and legal basis (art. 14, 19-2 of 1965 law).">Mise en demeure formelle avec fondements légaux.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nom, adresse et lot du copropriétaire débiteur" data-en="Name, address and unit of debtor co-owner">Nom, adresse et lot du débiteur</li>
+              <li data-fr="Tableau des échéances impayées" data-en="Table of unpaid instalments">Tableau des échéances impayées</li>
+              <li data-fr="Historique des relances précédentes (dates)" data-en="Previous reminder history (dates)">Historique des relances (dates)</li>
+              <li data-fr="IBAN du syndicat" data-en="Syndicate IBAN">IBAN du syndicat</li>
+            </ul>
+          </div>
+          <div class="sc-price">70 €</div>
+          <div class="sc-note" data-fr="Par débiteur · LRAR / LRE recommandé" data-en="Per debtor · Recorded delivery recommended">Par débiteur · LRAR / LRE recommandé</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Courrier divers" data-en="General correspondence">Courrier divers</h3>
+          <p class="sc-desc" data-fr="Courrier à destination d'un fournisseur, d'un copropriétaire ou de tout autre interlocuteur de la copropriété." data-en="Letter to a supplier, co-owner or any other party in the building.">Courrier fournisseur, copropriétaire ou tout autre destinataire.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nature du courrier et destinataire" data-en="Letter type and recipient">Nature du courrier et destinataire</li>
+              <li data-fr="Objet et éléments factuels à mentionner" data-en="Subject and factual elements to include">Objet et éléments factuels</li>
+            </ul>
+          </div>
+          <div class="sc-price">50 €</div>
+          <div class="sc-note" data-fr="Par courrier · Livraison PDF 48h" data-en="Per letter · 48h PDF delivery">Par courrier · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Résiliation contrat fournisseur" data-en="Supplier contract termination">Résiliation contrat fournisseur</h3>
+          <p class="sc-desc" data-fr="Courrier de résiliation d'un contrat de prestataire dans le respect du préavis contractuel." data-en="Contract termination letter respecting the contractual notice period.">Résiliation dans le respect du préavis contractuel.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nature et numéro du contrat, dates (début, fin, préavis)" data-en="Contract type and number, dates (start, end, notice)">Nature, numéro, dates du contrat</li>
+              <li data-fr="Motif de résiliation" data-en="Termination reason">Motif de résiliation</li>
+            </ul>
+          </div>
+          <div class="sc-price">80 €</div>
+          <div class="sc-note" data-fr="Par contrat · Livraison PDF 48h" data-en="Per contract · 48h PDF delivery">Par contrat · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc">
+          <h3 class="sc-name" data-fr="Demande de devis / Mise en concurrence" data-en="Quote request / Competitive tender">Demande de devis / Mise en concurrence</h3>
+          <p class="sc-desc" data-fr="Courrier structuré de demande de devis pour travaux ou prestations." data-en="Structured quote request for works or services.">Demande de devis structurée pour travaux ou prestations.</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Nature des travaux ou prestations demandées" data-en="Nature of works or services required">Nature des travaux / prestations</li>
+              <li data-fr="Descriptif du besoin" data-en="Description of need">Descriptif du besoin</li>
+              <li data-fr="Coordonnées des entreprises si connues" data-en="Company details if known">Entreprises à solliciter si connues</li>
+            </ul>
+          </div>
+          <div class="sc-price">80 €</div>
+          <div class="sc-note" data-fr="Par demande · Livraison PDF 48h" data-en="Per request · 48h PDF delivery">Par demande · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+        <div class="sc dark">
+          <h3 class="sc-name" data-fr="Contrat de syndic bénévole" data-en="Volunteer HOA manager contract">Contrat de syndic bénévole</h3>
+          <p class="sc-desc" data-fr="Contrat officialisant votre mandat de syndic bénévole, à faire voter en AG." data-en="Contract formalising your volunteer manager mandate, to be voted at a meeting.">Contrat officialisant votre mandat (11 articles, conforme loi 1965).</p>
+          <div class="sc-docs">
+            <span class="sc-docs-label" data-fr="Documents à fournir" data-en="Documents required">Documents à fournir</span>
+            <ul>
+              <li data-fr="Identité du syndic bénévole et lot détenu" data-en="Volunteer manager identity and unit held">Identité du syndic + lot détenu</li>
+              <li data-fr="Date de l'AG de désignation, durée du mandat" data-en="Designation meeting date, mandate duration">Date AG de désignation + durée</li>
+              <li data-fr="Option rémunération (gratuit ou forfait)" data-en="Remuneration option (free or fixed fee)">Option rémunération choisie</li>
+            </ul>
+          </div>
+          <div class="sc-price">80 €</div>
+          <div class="sc-note" data-fr="Par contrat · Livraison PDF 48h" data-en="Per contract · 48h PDF delivery">Par contrat · Livraison PDF 48h</div>
+          <a href="index.html#contact" class="sc-cta" data-fr="Commander" data-en="Order">Commander</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- FAQ -->
+<section class="faq">
+  <div class="si">
+    <div class="rv">
+      <div class="ey" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</div>
+      <h2 class="st">Tout ce que vous<br>avez besoin de <em>savoir</em></h2>
+    </div>
+    <div class="faq-grid rv d1">
+      <div class="faq-item">
+        <h3 class="faq-q" data-fr="Comment fonctionne la commande ?" data-en="How does ordering work?">Comment fonctionne la commande ?</h3>
+        <p class="faq-a" data-fr="Vous m'envoyez via le formulaire de contact le type de document souhaité et les informations nécessaires. Je reviens vers vous sous 48h avec le document finalisé en PDF. Vous le validez, puis vous réglez — aucune avance requise." data-en="Send me the document type and required information via the contact form. I get back within 48h with the finalised PDF. You approve it, then pay — no advance required.">Via le formulaire de contact, précisez la prestation et les infos de votre copropriété. Document finalisé sous 48h. Vous validez puis vous réglez — aucune avance.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q" data-fr="La facture est-elle au nom du SDC ?" data-en="Is the invoice in the syndicate's name?">La facture est-elle au nom du SDC ?</h3>
+        <p class="faq-a" data-fr="Oui. La facture est libellée au nom du Syndicat des Copropriétaires. Le paiement s'effectue depuis le compte bancaire séparé du syndicat. C'est une dépense de gestion de la copropriété, pas une dépense personnelle du syndic bénévole." data-en="Yes. The invoice is in the Co-owners' Syndicate name. Payment comes from the syndicate's separate bank account. It's a building management expense, not a personal expense of the volunteer manager.">Oui, au nom du Syndicat des Copropriétaires. Paiement depuis le compte séparé du syndicat — c'est une dépense de gestion, pas personnelle.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q" data-fr="Les documents sont-ils valables à Saint-Martin ?" data-en="Are the documents valid in Saint-Martin?">Les documents sont-ils valables à Saint-Martin ?</h3>
+        <p class="faq-a" data-fr="Oui. La loi du 10 juillet 1965 et le décret du 17 mars 1967 s'appliquent pleinement à Saint-Martin en tant que Collectivité d'Outre-Mer. Tous les documents sont rédigés en tenant compte de ce cadre." data-en="Yes. The law of 10 July 1965 and decree of 17 March 1967 apply fully in Saint-Martin as an Overseas Collectivity. All documents are drafted within this legal framework.">Oui. La loi de 1965 s'applique à Saint-Martin (COM). Tous les documents respectent ce cadre juridique.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q" data-fr="Et si j'ai besoin d'une modification ?" data-en="What if I need a change?">Et si j'ai besoin d'une modification ?</h3>
+        <p class="faq-a" data-fr="Les corrections mineures (erreur de nom, date, reformulation) sont incluses. Les modifications substantielles peuvent donner lieu à un ajustement de tarif communiqué au préalable." data-en="Minor corrections (name, date, wording) are included. Substantial changes may involve a price adjustment communicated in advance.">Corrections mineures incluses. Modifications substantielles : ajustement communiqué avant.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q" data-fr="Puis-je commander sans engagement ?" data-en="Can I order without commitment?">Puis-je commander sans engagement ?</h3>
+        <p class="faq-a" data-fr="Absolument. Pas d'abonnement, pas de contrat. Vous commandez une prestation, vous payez cette prestation — c'est tout. Vous revenez quand vous avez besoin." data-en="Absolutely. No subscription, no contract. You order a service, you pay for it — that's all. Come back whenever you need.">Pas d'abonnement, pas de contrat. Une commande = une prestation = un paiement. Rien de plus.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q" data-fr="Quelle différence avec un logiciel en ligne ?" data-en="What's the difference with an online tool?">Quelle différence avec un logiciel en ligne ?</h3>
+        <p class="faq-a" data-fr="Un logiciel vous aide à rédiger vous-même. Ici, c'est moi qui rédige pour vous, en tenant compte des informations réelles de votre immeuble et du droit applicable à Saint-Martin." data-en="A tool helps you draft yourself. Here, I draft for you, based on your building's actual details and Saint-Martin law.">Un logiciel, c'est vous qui rédigez. Ici, c'est moi qui rédige pour vous, avec les données réelles de votre immeuble.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-band">
+  <div class="si">
+    <h2 class="rv" data-fr="Un syndic <em>quand vous en avez besoin.</em>" data-en="A manager <em>when you need one.</em>">Un syndic <em>quand vous en avez besoin.</em></h2>
+    <p class="rv d1" data-fr="Dites-moi ce dont vous avez besoin, je m'occupe du reste. Réponse sous 48h." data-en="Tell me what you need, I'll take care of the rest. Reply within 48h.">Dites-moi ce dont vous avez besoin, je m'occupe du reste. Réponse sous 48h.</p>
+    <div class="cta-actions rv d2">
+      <a href="index.html#contact" class="btn-p" data-fr="Faire une demande" data-en="Make a request">Faire une demande</a>
+      <a href="tel:+33675862649" class="btn-g">+33 6 75 86 26 49</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="index.html" class="nav-logo">Théo Loppinet<span>Immobilier · Saint-Martin</span></a>
+        <p data-fr="Agent commercial en immobilier et services aux copropriétés à Saint-Martin (97150)." data-en="Real estate agent and HOA services in Saint-Martin (97150).">Agent commercial en immobilier et services aux copropriétés à Saint-Martin (97150).</p>
+      </div>
+      <div class="ft-col">
+        <h4 data-fr="Services" data-en="Services">Services</h4>
+        <ul>
+          <li><a href="services.html" data-fr="Syndic bénévole — Documents" data-en="HOA support — Documents">Syndic bénévole — Documents</a></li>
+          <li><a href="transaction.html" data-fr="Transaction immobilière" data-en="Real estate">Transaction immobilière</a></li>
+          <li><a href="syndic-pro.html" data-fr="Syndic professionnel" data-en="Professional HOA">Syndic professionnel</a></li>
+          <li><a href="index.html#contact" data-fr="Estimation gratuite" data-en="Free valuation">Estimation gratuite</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+33675862649">+33 6 75 86 26 49</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#cfbba7aaa0e1a3a0bfbfa6a1aabb8fa8a2aea6a3e1aca0a2"><span class="__cf_email__" data-cfemail="681c000d07460407181801060d1c280f05090104460b0705">[email&#160;protected]</span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#d7a3bfb2b897a4beb0b9b6a3a2a5b2faa4afbaf9b4b8ba"><span class="__cf_email__" data-cfemail="9ce8f4f9f3dceff5fbf2fde8e9eef9b1efe4f1b2fff3f1">[email&#160;protected]</span></a></li>
+          <li><a href="blog.html" data-fr="Conseils & ressources" data-en="Insights">Conseils &amp; ressources</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2025 Théo Loppinet · Saint-Martin (97150)</span>
+      <div class="ft-legal">
+        <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+        <a href="mentions-legales.html#confidentialite" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
+        <a href="mentions-legales.html#cgv" data-fr="CGV" data-en="T&Cs">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+  document.querySelectorAll('a,button,.sc,.faq-item').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.classList.add('hov');ring.classList.add('hov');});el.addEventLi
